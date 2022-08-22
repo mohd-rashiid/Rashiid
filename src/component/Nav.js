@@ -9,18 +9,17 @@ function Nav() {
   // const location = useLocation()
   return (
     <>
+      {/* {location.pathname!="/Login"?<Nav />:""} */}
 
-  {/* {location.pathname!="/Login"?<Nav />:""} */}
-    
-   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button 
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        {/* <button 
         style={{color:"white",backgroundColor:"black"}}
           onClick={() => {
             navigate("/home" );
           }}
         >
           Back
-        </button>
+        </button> */}
         <div className="container-fluid">
           <Link className="navbar-brand mx-5" to="/home">
             <h2 style={{ marginLeft: "100px" }}>Osperb</h2>
@@ -30,9 +29,8 @@ function Nav() {
               <Link className="nav-link" to="/home">
                 Home
               </Link>
-           
             </li>
-            <li className="nav-item">                             
+            <li className="nav-item">
               <Link className="nav-link" to="/About">
                 About us
               </Link>

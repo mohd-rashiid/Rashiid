@@ -9,9 +9,11 @@ import {
   Form,
   Row,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function StudentDetails(Change) {
+  const navigate = useNavigate();
+
   return (
     <>
       <Container fluid style={{ height: "1000px" }}>
@@ -111,6 +113,14 @@ function StudentDetails(Change) {
                     </div>
                   </Row>
                   <div className="mt-3 d-flex justify-content-end">
+                    <Button
+                      style={{ marginRight: "647px" }}
+                      onClick={() => {
+                        navigate("/home");
+                      }}
+                    >
+                      back
+                    </Button>
                     <Button style={{ backgroundColor: "blue" }}> submit</Button>
                   </div>
                 </Form>

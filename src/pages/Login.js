@@ -47,7 +47,7 @@ function Login() {
       password: status.password,
     };
     // console.log(input);
-    dispatch(loginApi(input));
+    dispatch(loginApi(input, navigate));
   };
   function Handle(e) {
     const Data = { ...status };

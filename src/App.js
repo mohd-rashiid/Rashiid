@@ -5,6 +5,7 @@ import {
   Route,
   Link,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import Footer from "./component/Footer";
 import Nav from "./component/Nav";
@@ -26,25 +27,31 @@ function App() {
   // // const location = useLocation();
   // const LoginPage = {
   //     LandingPage
+
   // }
+
+  const token = sessionStorage.getItem("token");
+
   return (
     <>
       <Router>
         {/* <Nav /> */}
         <Layout>
           <Routes>
+            <Route path="*" element={<NotFound />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/lay" element={<Layout />} />
+            {/* <Route path="/lay" element={<Layout />} /> */}
             {/* <Route path="/Login" element={<Login />} /> */}
             <Route path="/About" element={<About />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="/StudentCreate" element={<StudentCreate />} />
             <Route path="/Students" element={<Students />} />
             <Route path="/CreateCategory" element={<CourseCategory />} />
             <Route path="/CategoryList" element={<CategoryList />} />
             <Route path="/CreateCourse" element={<CreateCourse />} />
             <Route path="/Courses" element={<Courses />} />
+
+            {/* <Route path="/home" element={<Navigate replace to="/" />} /> */}
           </Routes>
         </Layout>
       </Router>
