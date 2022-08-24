@@ -15,7 +15,7 @@ import CourseCategory from "./pages/CourseCategory";
 import Courses from "./pages/Courses";
 import CreateCourse from "./pages/CreateCourse";
 import LandingPage from "./pages/LandingPage";
-// import Login from "./pages/Login";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import StudentCreate from "./pages/StudentCreate";
 import Students from "./pages/Students";
@@ -39,30 +39,28 @@ function App() {
     <>
       <Router>
         {/* <Nav /> */}
-        <Layout>
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<Home />} />
-            {/* <Route path="/lay" element={<Layout />} /> */}
-            {/* <Route path="/Login" element={<Login />} /> */}
-            <Route path="/About" element={<About />} />
-            <Route path="/StudentCreate" element={<StudentCreate />} />
-            <Route path="/Students" element={<Students />} />
-            <Route path="/updatedetails" element={<UpdateDetails />} />
-            <Route path="/CreateCategory" element={<CourseCategory />} />
-            <Route path="/CategoryList" element={<CategoryList />} />
-            <Route path="/CreateCourse" element={<CreateCourse />} />
-            <Route path="updatecategory" element={<UpdateCategory />} />
-            <Route path="/Courses" element={<Courses />} />
-            <Route path="/updatecourse" element={<UpdateCourses />} />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<Home />} />
+          {/* <Route path="/lay" element={<Layout />} /> */}
+          <Route path="/About" element={<About />} />
+          <Route path="/StudentCreate" element={<StudentCreate />} />
+          <Route path="/Students" element={<Students />} />
+          <Route path="/updatedetails" element={<UpdateDetails />} />
+          <Route path="/CreateCategory" element={<CourseCategory />} />
+          <Route path="/CategoryList" element={<CategoryList />} />
+          <Route path="/CreateCourse" element={<CreateCourse />} />
+          <Route path="updatecategory" element={<UpdateCategory />} />
+          <Route path="/Courses" element={<Courses />} />
+          <Route path="/updatecourse" element={<UpdateCourses />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
 
-            {/* <Route path="/home" element={<Navigate replace to="/" />} /> */}
-          </Routes>
-        </Layout>
+          {/* <Route path="/home" element={<Navigate replace to="/" />} /> */}
+        </Routes>
+
+        <Routes></Routes>
       </Router>
-
-      <Footer />
     </>
   );
 }

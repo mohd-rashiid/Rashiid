@@ -1,4 +1,4 @@
-import axios from "axios";
+import { AxiosApi } from "../../AxiosMethod";
 import { loginFail, loginRequest, loginSuccess } from "./action";
 
 export const loginApi = (input, navigate) => {
@@ -6,20 +6,26 @@ export const loginApi = (input, navigate) => {
   return async (dispatch) => {
     dispatch(loginRequest(input));
 
-    const res = await axios.post(
-      `http://192.168.1.47:3000/api/v1/account/login`,
-      input
-    );
-
-    console.log(res);
-
-    if (res.status === 200) {
+    try {
+      const res = await AxiosApi.post(`/account/login`, input);
+      console.log(res);
       dispatch(loginSuccess(res));
       sessionStorage.setItem("token", res.data.token);
       navigate("/home");
-    } else {
-      dispatch(loginFail(res.data.error_message));
+    } catch (error) {
+      console.log(error?.response?.data);
+      dispatch(loginFail(error?.response?.data));
     }
+
+    // if (res.status === 200) {
+    //   dispatch(loginSuccess(res));
+    //   sessionStorage.setItem("token", res.data.token);
+    //   navigate("/home");
+    // } else {
+    //   console.log(res);
+    //   dispatch(loginFail(res.data.error_message));
+    //   alert("password or username is incorrect");
+    // }
   };
 };
 

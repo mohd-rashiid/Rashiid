@@ -31,7 +31,7 @@ function NotFound() {
           justifyContent: "center",
         }}
       >
-        <img src={img} alt="" />
+        <img className="rounded" src={img} alt="" />
       </div>
 
       <Link

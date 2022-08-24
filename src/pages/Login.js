@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import Home from "./Home";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginApi } from "../Store/Login/useApi";
 import { loginFail } from "../Store/Login/action";
 // import image from "../images/ok. EPS10 for free";
@@ -15,6 +15,11 @@ function Login() {
 
   const [reply, setReply] = useState();
   const [status, setStatus] = useState({ username: "", password: "" });
+
+  const { loginError, loading } = useSelector((state) => ({
+    loginError: state.error,
+    loading: state.loading,
+  }));
 
   // const postApi = () => {
   //   Axios.post("http://192.168.1.133:3000/api/v1/account/login").then(
@@ -69,7 +74,7 @@ function Login() {
     <div className="" style={{ height: "800px" }}>
       <div className="container">
         <div
-          className="row justify-content-flex-start"
+          className="row justify-content-center"
           // style={{ position: "absolute", top: "172px", right: "101px" }}
         >
           <div
@@ -82,6 +87,7 @@ function Login() {
             <h1 className="text-center pt-3 text-secondery h2">
               <b>Login</b>
             </h1>
+
             <form onSubmit={(e) => handleSubmitBtn(e)}>
               <div className="form-group">
                 <label className="col-form-label">
@@ -117,6 +123,9 @@ function Login() {
                   forgot password?
                 </Link>
               </div> */}
+              <p style={{ color: "red", marginTop: "5px" }}>
+                {loginError?.error_message}
+              </p>
               <input
                 style={{
                   color: "white",
@@ -127,7 +136,7 @@ function Login() {
                 className="btn  my-3"
                 value="Login"
               />
-              {loginFail}
+              {loading && <p>loading....</p>}
             </form>
             <div>
               {/* <img src={image} style={{ width: "450px", height: "50%" }} /> */}

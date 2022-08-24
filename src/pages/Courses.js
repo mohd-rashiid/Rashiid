@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Layout from "../component/layout";
 
 function Courses() {
   return (
-    <div style={{height:"1000px"}}>Courses</div>
-  )
+    <div>
+      <Layout>
+        <div style={{ height: "1000px" }}>Courses</div>
+      </Layout>
+    </div>
+  );
 }
 
-export default Courses; 
+export default Courses;

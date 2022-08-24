@@ -7,12 +7,17 @@ function Home() {
   // window.isNav = true;
   return (
     <>
-      <div
-        style={{ backgroundColor: "white", maxHeight: "100%", height: "720px" }}
-      >
-        {/* <Nav /> */}
-        {/* <SideBar /> */}
-        {/* <h1
+      <Layout>
+        <div
+          style={{
+            backgroundColor: "white",
+            maxHeight: "100%",
+            height: "720px",
+          }}
+        >
+          {/* <Nav /> */}
+          {/* <SideBar /> */}
+          {/* <h1
         className="hello"
         style={{
           display: "flex",
@@ -23,7 +28,8 @@ function Home() {
         {" "}
         WELCOME HOME
       </h1> */}
-      </div>
+        </div>
+      </Layout>
     </>
   );
 }

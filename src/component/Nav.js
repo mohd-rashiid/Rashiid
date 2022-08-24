@@ -21,7 +21,7 @@ function Nav() {
           Back
         </button> */}
         <div className="container-fluid">
-          <Link className="navbar-brand mx-5" to="/home">
+          <Link className="navbar-brand mx-5" to="/">
             <h2 style={{ marginLeft: "100px", color: "white " }}>Osperb</h2>
           </Link>
           {/* <ul className="navbar-nav mx-5">

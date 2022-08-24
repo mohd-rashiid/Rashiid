@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import Footer from "./Footer";
 import Nav from "./Nav";
 import SideBar from "./SideBar";
 
@@ -17,6 +18,7 @@ function Layout({ children }) {
         </div>
         <div style={{ width: "100%" }}>{children}</div>
       </div>
+      <Footer />
     </div>
   );
 }
