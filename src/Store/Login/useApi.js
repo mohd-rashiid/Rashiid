@@ -13,12 +13,12 @@ export const loginApi = (input, navigate) => {
 
     console.log(res);
 
-    if (res.data.error_message) {
-      dispatch(loginFail(res.data.error_message));
-    } else {
+    if (res.status === 200) {
       dispatch(loginSuccess(res));
       sessionStorage.setItem("token", res.data.token);
       navigate("/home");
+    } else {
+      dispatch(loginFail(res.data.error_message));
     }
   };
 };

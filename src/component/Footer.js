@@ -3,27 +3,35 @@ import React from "react";
 function Footer() {
   return (
     <div>
-      <div  style={{ borderTop: "2px solid gray",
-          margin: " 30px 100px 0px 100px", width:""}}>
-      <footer
+      <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop:"10px"
-         
+          borderTop: "1px solid black ",
+          margin: " 30px 100px 0px 100px",
+          width: "",
         }}
       >
-        
-        <section className="bottom-footer">
-          <div className="container">
-            <p className="mb-0">Osperb © All Rights Reserved - 2022</p>
-          </div>
-        </section>
-      </footer>
+        <footer
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "40px",
+            padding: "0px 1px 20px 0px",
+            // marginBottom: "15px",
+          }}
+        >
+          <section className="bottom-footer">
+            <div className="container" style={{ color: "black" }}>
+              <p className="mb-0">Osperb © All Rights Reserved - 2022</p>
+            </div>
+          </section>
+        </footer>
       </div>
     </div>
   );
 }
 
 export default Footer;
+// dispatch(loginSuccess(res));
+// sessionStorage.setItem("token", res.data.token);
+// navigate("/home");

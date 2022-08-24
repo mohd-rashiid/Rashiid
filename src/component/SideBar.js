@@ -11,10 +11,9 @@ function SideBar() {
         width: "300px",
         height: "100%",
         padding: "101px 0px 17px 30px ",
-        scrollbarColor:"red",
+        scrollbarColor: "red",
       }}
     >
-      
       <h2 style={{ color: "white" }}>Student Details</h2>
       <ul style={{ fontSize: "22px" }}>
         <li>
@@ -35,7 +34,18 @@ function SideBar() {
             Students
           </Link>
         </li>
+
+        <li>
+          {" "}
+          <Link
+            to="/updatedetails"
+            style={{ textDecoration: "none", fontSize: "22px" }}
+          >
+            Update Students
+          </Link>
+        </li>
       </ul>
+
       <h2 style={{ color: "white" }}>Course Category</h2>
       <ul style={{ fontSize: "22px" }}>
         <li>
@@ -55,7 +65,17 @@ function SideBar() {
             CategoryList
           </Link>
         </li>
+        <li>
+          <Link
+            to="/updatecategory"
+            style={{ textDecoration: "none", fontSize: "22px" }}
+          >
+            {" "}
+            Update Category
+          </Link>
+        </li>
       </ul>
+
       <h2 style={{ color: "white" }}>Course Details</h2>
       <ul style={{ fontSize: "22px" }}>
         <li>
@@ -75,6 +95,15 @@ function SideBar() {
             {" "}
             Courses
           </Link>
+          <li>
+            <Link
+              to="/updatecourse"
+              style={{ textDecoration: "none", fontSize: "22px" }}
+            >
+              {" "}
+              Update Courses
+            </Link>
+          </li>
         </li>
       </ul>
     </div>

@@ -10,8 +10,8 @@ function Home() {
       <div
         style={{ backgroundColor: "white", maxHeight: "100%", height: "720px" }}
       >
-        <Nav />
-        <SideBar />
+        {/* <Nav /> */}
+        {/* <SideBar /> */}
         {/* <h1
         className="hello"
         style={{

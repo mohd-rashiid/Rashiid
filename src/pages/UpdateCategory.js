@@ -1,10 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
-import Nav from "../component/Nav";
-import SideBar from "../component/SideBar";
 
-function CourseCategory() {
+function UpdateCategory() {
   const navigate = useNavigate();
   return (
     <div>
@@ -13,7 +11,7 @@ function CourseCategory() {
           <div className="row justify-content-center my-5">
             <div className="col-sm-6 shadow rounded g-7">
               <h1 className="text-center pt-3 text-secondery h2">
-                Create Category List
+                Edit your Details
               </h1>
               <form>
                 <div className="form-group">
@@ -34,17 +32,19 @@ function CourseCategory() {
                     backgroundColor: "MediumSeaGreen",
                     color: "white",
                     padding: "3px 20px 3px 20px",
+                    borderRadius: "5px",
                   }}
                   type="Submit"
                   className="btn  my-3"
-                  value="Create"
+                  value="Update"
                 />
                 <Button
                   style={{
-                    marginLeft: "463px",
+                    marginLeft: "462px",
                     backgroundColor: " white ",
                     color: "black",
                     padding: "3px 20px 3px 20px",
+                    borderRadius: "5px",
                   }}
                   onClick={() => {
                     navigate("/home");
@@ -61,4 +61,4 @@ function CourseCategory() {
   );
 }
 
-export default CourseCategory;
+export default UpdateCategory;

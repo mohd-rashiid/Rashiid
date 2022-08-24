@@ -1,6 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
+import Footer from "../component/Footer";
+import Nav from "../component/Nav";
+import SideBar from "../component/SideBar";
 
 function CreateCourse() {
   const navigate = useNavigate();
@@ -33,15 +36,24 @@ function CreateCourse() {
               </div>
               <div>
                 <input
+                  style={{
+                    color: "white",
+                    backgroundColor: "MediumSeaGreen ",
+                    padding: "3px 20px 3px 20px",
+                    borderRadius: "5px",
+                  }}
                   type="submit"
-                  className="btn btn-primary my-3"
-                  value="Submit"
+                  className="btn  my-3 "
+                  value="Create"
                 />
+
                 <Button
                   style={{
-                    marginLeft: "470px",
-                    color: "",
-                    backgroundColor: "blue",
+                    marginLeft: "439px",
+                    color: "black",
+                    backgroundColor: "white",
+                    padding: "3px 20px 3px 20px",
+                    borderRadius: "5px",
                   }}
                   onClick={() => {
                     navigate("/home");
@@ -55,6 +67,7 @@ function CreateCourse() {
           </div>
         </div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 }

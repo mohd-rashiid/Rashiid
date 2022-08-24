@@ -11,7 +11,7 @@ function Nav() {
     <>
       {/* {location.pathname!="/Login"?<Nav />:""} */}
 
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-secondary     bg-secondary">
         {/* <button 
         style={{color:"white",backgroundColor:"black"}}
           onClick={() => {
@@ -22,9 +22,9 @@ function Nav() {
         </button> */}
         <div className="container-fluid">
           <Link className="navbar-brand mx-5" to="/home">
-            <h2 style={{ marginLeft: "100px" }}>Osperb</h2>
+            <h2 style={{ marginLeft: "100px", color: "white " }}>Osperb</h2>
           </Link>
-          <ul className="navbar-nav mx-5">
+          {/* <ul className="navbar-nav mx-5">
             <li className="nav-item">
               <Link className="nav-link" to="/home">
                 Home
@@ -35,7 +35,7 @@ function Nav() {
                 About us
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </nav>
     </>

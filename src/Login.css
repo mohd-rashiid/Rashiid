@@ -1,10 +1,10 @@
 /* body{
     background-color: red;
 } */
-
+/* 
 .navbar.navbar-expand-lg{
     display: none;
-}
+} */
 .row.justify-content-flex-start {
     display: flex;
     justify-content: flex-end;

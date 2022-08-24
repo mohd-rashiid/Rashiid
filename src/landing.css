@@ -1,0 +1,17 @@
+.bg{
+
+    background-color: blue;
+}   
+.totel{
+    background:linear-gradient(rgba(9, 25, 54, 0.849),rgb(65, 85, 94)),url(./images/img.jpg) ;
+/* background-repeat: no-repeat; */
+/* background-attachment: fixed; */
+background-position: center;
+
+}
+/* }
+.totel{
+    display: flex  url(./images/stand.jpg);
+}
+ */
+

@@ -5,6 +5,8 @@ import Axios from "axios";
 import Home from "./Home";
 import { useDispatch } from "react-redux";
 import { loginApi } from "../Store/Login/useApi";
+import { loginFail } from "../Store/Login/action";
+// import image from "../images/ok. EPS10 for free";
 // import "../Login.css"
 
 function Login() {
@@ -64,12 +66,18 @@ function Login() {
   // }
 
   return (
-    <div style={{ height: "600px" }}>
-      <div className="container my-5">
-        <div className="row justify-content-flex-start my-5">
+    <div className="" style={{ height: "800px" }}>
+      <div className="container">
+        <div
+          className="row justify-content-flex-start"
+          // style={{ position: "absolute", top: "172px", right: "101px" }}
+        >
           <div
             className="col-sm-4 shadow rounded g-5"
-            style={{ backgroundColor: "" }}
+            style={{
+              backgroundColor: "white ",
+              // position: "absolute",
+            }}
           >
             <h1 className="text-center pt-3 text-secondery h2">
               <b>Login</b>
@@ -110,12 +118,20 @@ function Login() {
                 </Link>
               </div> */}
               <input
+                style={{
+                  color: "white",
+                  backgroundColor: "MediumSeaGreen",
+                  borderRadius: "5px",
+                }}
                 type="submit"
-                className="btn btn-primary my-3"
+                className="btn  my-3"
                 value="Login"
               />
-              {reply}
+              {loginFail}
             </form>
+            <div>
+              {/* <img src={image} style={{ width: "450px", height: "50%" }} /> */}
+            </div>
           </div>
         </div>
       </div>

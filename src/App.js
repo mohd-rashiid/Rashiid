@@ -21,6 +21,9 @@ import StudentCreate from "./pages/StudentCreate";
 import Students from "./pages/Students";
 import Home from "./pages/Home";
 import Layout from "./component/layout";
+import UpdateCourses from "./pages/UpdateCourses";
+import UpdateCategory from "./pages/UpdateCategory";
+import UpdateDetails from "./pages/UpdateDetails";
 
 function App() {
   // window.isNav = true;
@@ -46,10 +49,13 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/StudentCreate" element={<StudentCreate />} />
             <Route path="/Students" element={<Students />} />
+            <Route path="/updatedetails" element={<UpdateDetails />} />
             <Route path="/CreateCategory" element={<CourseCategory />} />
             <Route path="/CategoryList" element={<CategoryList />} />
             <Route path="/CreateCourse" element={<CreateCourse />} />
+            <Route path="updatecategory" element={<UpdateCategory />} />
             <Route path="/Courses" element={<Courses />} />
+            <Route path="/updatecourse" element={<UpdateCourses />} />
 
             {/* <Route path="/home" element={<Navigate replace to="/" />} /> */}
           </Routes>

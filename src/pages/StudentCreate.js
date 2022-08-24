@@ -10,6 +10,8 @@ import {
   Row,
 } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
+import Nav from "../component/Nav";
+import SideBar from "../component/SideBar";
 
 function StudentDetails(Change) {
   const navigate = useNavigate();
@@ -114,14 +116,29 @@ function StudentDetails(Change) {
                   </Row>
                   <div className="mt-3 d-flex justify-content-end">
                     <Button
-                      style={{ marginRight: "647px" }}
+                      style={{
+                        marginRight: "469px",
+                        backgroundColor: "white",
+                        color: "black",
+                        padding: "3px 20px 3px 20px",
+                        borderRadius: "5px",
+                      }}
                       onClick={() => {
                         navigate("/home");
                       }}
                     >
                       back
                     </Button>
-                    <Button style={{ backgroundColor: "blue" }}> submit</Button>
+                    <Button
+                      style={{
+                        backgroundColor: "MediumSeaGreen",
+                        padding: "3px 20px 3px 20px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      {" "}
+                      Create
+                    </Button>
                   </div>
                 </Form>
               </CardBody>
