@@ -65,6 +65,7 @@ function LandingPage() {
                 display: "flex",
                 alignItems: "flex-end",
                 justifyContent: "flex-end",
+                borderRadius: "5px",
               }}
               src={image}
             />
