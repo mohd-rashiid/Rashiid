@@ -24,6 +24,7 @@ import Layout from "./component/layout";
 import UpdateCourses from "./pages/UpdateCourses";
 import UpdateCategory from "./pages/UpdateCategory";
 import UpdateDetails from "./pages/UpdateDetails";
+import Logout from "./pages/Logout";
 
 function App() {
   // window.isNav = true;
@@ -42,6 +43,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
+          {/* <Route path="/Logout" element={<Logout />} /> */}
           {/* <Route path="/lay" element={<Layout />} /> */}
           <Route path="/About" element={<About />} />
           <Route path="/StudentCreate" element={<StudentCreate />} />

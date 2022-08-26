@@ -9,7 +9,44 @@ import Footer from "../component/Footer";
 function LandingPage() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-primery"></nav>
+      <nav
+        class="navbar navbar-expand-sm"
+        style={{ display: "flex", justifyContent: "space-around" }}
+      >
+        <a class="navbar-brand" href="#">
+          <b>
+            <h3> EDISON VALLEY</h3>
+          </b>
+        </a>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Home{" "}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Feachers{" "}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/About">
+              About
+            </a>
+          </li>
+          <Button>
+            {/* <a href="/Login"></a> */}
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/Login"
+            >
+              {" "}
+              Sign In
+            </Link>
+          </Button>
+        </ul>
+      </nav>
       <div
         style={{
           display: "flex",
@@ -72,10 +109,12 @@ function LandingPage() {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
 
     // <div className="landingpage">
+
     //   <Login />
     //   <div>
     //     <img
