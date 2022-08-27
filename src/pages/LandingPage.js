@@ -5,13 +5,18 @@ import "../landing.css";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import Footer from "../component/Footer";
+import LandingFooter from "./LandingFooter";
 
 function LandingPage() {
   return (
     <>
       <nav
         class="navbar navbar-expand-sm"
-        style={{ display: "flex", justifyContent: "space-around" }}
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          // position: "absolute",
+        }}
       >
         <a class="navbar-brand" href="#">
           <b>
@@ -63,11 +68,12 @@ function LandingPage() {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
+            fontFamily: "sans-serif",
           }}
         >
           <div style={{ color: "white " }}>
             <h1>
-              Make your Carrior
+              Make your Career
               <br /> with <b>"EDISON VALLEY"</b>
             </h1>
             <h5>
@@ -109,6 +115,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
+      <LandingFooter />
 
       <Footer />
     </>

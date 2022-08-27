@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BsFillPersonFill } from "react-icons/bs";
+import { BiCategoryAlt, BiStore } from "react-icons/bi";
 
 function SideBar() {
   return (
@@ -11,101 +13,96 @@ function SideBar() {
         background: " #ADD8E6",
         width: "300px",
         height: "100%",
-        padding: "101px 0px 17px 30px ",
+        padding: "20px ",
         scrollbarColor: "red",
       }}
     >
-      <h2 style={{ color: "white" }}>Student Details</h2>
-      <ul style={{ fontSize: "22px" }}>
-        <li>
-          <div>
-            <Link
-              to="/StudentCreate"
-              style={{ textDecoration: "none", fontSize: "22px" }}
-            >
-              Student Create
-            </Link>
-          </div>
-        </li>
-        <li>
+      <h2 style={{ color: "black", fontSize: "25px" }}>
+        <BsFillPersonFill style={{ color: "black" }} /> <b>Student Details</b>
+      </h2>
+      <ul style={{ fontSize: "10px" }}>
+        <Link
+          to="/Students"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          All Students
+        </Link>
+        <div>
           <Link
-            to="/Students"
-            style={{ textDecoration: "none", fontSize: "22px" }}
+            to="/StudentCreate"
+            style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
           >
-            Students
+            Student Create
           </Link>
-        </li>
+        </div>{" "}
+        <Link
+          to="/updatedetails"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          Update Students
+        </Link>
+      </ul>
 
-        <li>
+      <h2 style={{ color: "black", fontSize: "25px" }}>
+        <BiCategoryAlt style={{ color: "black" }} />
+        <b>Course Category</b>
+      </h2>
+      <ul style={{ fontSize: "22px" }}>
+        <Link
+          to="/CategoryList"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          All CategoryList
+        </Link>
+        <br></br>
+
+        <Link
+          to="/CreateCategory"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
           {" "}
-          <Link
-            to="/updatedetails"
-            style={{ textDecoration: "none", fontSize: "22px" }}
-          >
-            Update Students
-          </Link>
-        </li>
+          Create Category
+        </Link>
+        <br></br>
+
+        <Link
+          to="/updatecategory"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          Update Category
+        </Link>
       </ul>
 
-      <h2 style={{ color: "white" }}>Course Category</h2>
+      <h2 style={{ color: "black", fontSize: "25px" }}>
+        <BiStore style={{ color: "black" }} />
+        <b>Course Details</b>
+      </h2>
       <ul style={{ fontSize: "22px" }}>
-        <li>
-          <Link
-            to="/CreateCategory"
-            style={{ textDecoration: "none", fontSize: "22px" }}
-          >
-            {" "}
-            Create Category
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/CategoryList"
-            style={{ textDecoration: "none", fontSize: "22px" }}
-          >
-            CategoryList
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/updatecategory"
-            style={{ textDecoration: "none", fontSize: "22px" }}
-          >
-            {" "}
-            Update Category
-          </Link>
-        </li>
-      </ul>
+        <Link
+          to="/Courses"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          All Courses
+        </Link>
+        <br></br>
 
-      <h2 style={{ color: "white" }}>Course Details</h2>
-      <ul style={{ fontSize: "22px" }}>
-        <li>
-          <Link
-            to="/CreateCourse"
-            style={{ textDecoration: "none", fontSize: "22px" }}
-          >
-            {" "}
-            Create Course
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/Courses"
-            style={{ textDecoration: "none", fontSize: "22px" }}
-          >
-            {" "}
-            Courses
-          </Link>
-          <li>
-            <Link
-              to="/updatecourse"
-              style={{ textDecoration: "none", fontSize: "22px" }}
-            >
-              {" "}
-              Update Courses
-            </Link>
-          </li>
-        </li>
+        <Link
+          to="/CreateCourse"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          Create Course
+        </Link>
+        <br></br>
+        <Link
+          to="/updatecourse"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          Update Courses
+        </Link>
       </ul>
     </div>
   );

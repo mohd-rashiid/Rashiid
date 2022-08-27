@@ -15,6 +15,7 @@ function Home() {
             height: "720px",
           }}
         >
+          {/* <div>WELCOME HOME</div> */}
           {/* <Nav /> */}
           {/* <SideBar /> */}
           {/* <h1

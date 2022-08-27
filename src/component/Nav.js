@@ -21,7 +21,10 @@ function Nav() {
     <>
       {/* {location.pathname!="/Login"?<Nav />:""} */}
 
-      <nav className="navbar navbar-expand-lg navbar-secondary      bg-secondary">
+      <nav
+        // style={{ position: "fixed" }}
+        className="navbar navbar-expand-lg navbar-secondary      bg-secondary"
+      >
         {/* <button 
         style={{color:"white",backgroundColor:"black"}}
           onClick={() => {
@@ -31,8 +34,8 @@ function Nav() {
           Back
         </button> */}
         <div className="container-fluid">
-          <Link className="navbar-brand mx-5" to="/">
-            <div
+          {/* <Link className="navbar-brand mx-5" to="/home"> */}
+          {/* <div
               style={{
                 display: "flex",
                 padding: "0",
@@ -40,7 +43,6 @@ function Nav() {
                 color: "white",
               }}
             >
-              <FaBars />
 
               <h2
                 style={{
@@ -49,10 +51,19 @@ function Nav() {
                   // marginBottom: "60px",
                 }}
               >
+              
                 Osperb
               </h2>
-            </div>
-          </Link>
+            </div> */}
+
+          <FaBars
+            style={{
+              fontSize: "40px",
+              padding: "0px 5px 0px 5px ",
+              color: "white",
+            }}
+          />
+          {/* </Link> */}
           {/* <div style={{ display: "flex", justifyContent: "space-between" }}> */}
           <div
             style={{
@@ -71,7 +82,14 @@ function Nav() {
               placeholder="Search here.."
               aria-label="Search "
               aria-describedby="search-addon"
-              style={{ marginRight: "87px", borderRadius: "15px" }}
+              style={{
+                marginLeft: "-400px",
+                marginRight: "400px",
+                borderRadius: "15px",
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+              }}
             />
             {/* <span className="input-group-text border-0" id="search-addon"> */}
             {/* <button

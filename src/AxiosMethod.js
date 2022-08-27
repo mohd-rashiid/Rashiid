@@ -14,6 +14,8 @@ AxiosApi.interceptors.request.use(function (config) {
   if (token) {
     config.headers["Authorization"] =
       "Token " + sessionStorage.getItem("token");
+  } else {
+    console.log("error");
   }
 
   return config;
