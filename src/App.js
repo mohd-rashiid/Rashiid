@@ -42,6 +42,7 @@ function App() {
         {/* <Nav /> */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
+
           <Route path="/home" element={<Home />} />
           {/* <Route path="/Logout" element={<Logout />} /> */}
           {/* <Route path="/lay" element={<Layout />} /> */}

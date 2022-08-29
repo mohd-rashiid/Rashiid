@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import Home from "./Home";
 import { useDispatch, useSelector } from "react-redux";
-import { loginApi } from "../Store/Login/useApi";
+import { loginApi, logoutApi } from "../Store/Login/useApi";
 import { loginFail } from "../Store/Login/action";
 // import image from "../images/ok. EPS10 for free";
 // import "../Login.css"

@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "../component/layout";
 import Nav from "../component/Nav";
 import SideBar from "../component/SideBar";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const token = sessionStorage.getItem("token");
+
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate("/");
+  //   }
+  // }, [token]);
+
   // window.isNav = true;
   return (
     <>

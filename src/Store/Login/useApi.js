@@ -1,5 +1,11 @@
 import { AxiosApi } from "../../AxiosMethod";
-import { loginFail, loginRequest, loginSuccess } from "./action";
+import {
+  loginFail,
+  loginRequest,
+  loginSuccess,
+  logoutFail,
+  logoutRequest,
+} from "./action";
 
 export const loginApi = (input, navigate) => {
   console.log(input);
@@ -10,10 +16,11 @@ export const loginApi = (input, navigate) => {
       const res = await AxiosApi.post(`/account/login`, input);
       console.log(res);
       dispatch(loginSuccess(res));
+
       sessionStorage.setItem("token", res.data.token);
       navigate("/home");
     } catch (error) {
-      console.log(error?.response?.data);
+      // console.log(error?.response?.data);
       dispatch(loginFail(error?.response?.data));
     }
 
@@ -29,6 +36,26 @@ export const loginApi = (input, navigate) => {
   };
 };
 
+export const logoutApi = (navigate) => {
+  // console.log(input);
+  return async (dispatch) => {
+    dispatch(logoutRequest());
+
+    try {
+      const token = sessionStorage.getItem("token");
+      const res = await AxiosApi.post(`/account/logout`, token);
+      console.log(res);
+      if (res) {
+        dispatch(loginSuccess(res));
+        sessionStorage.clear();
+        navigate("/");
+      }
+    } catch (error) {
+      // console.log(error?.response?.data);
+      dispatch(logoutFail(error?.response?.data));
+    }
+  };
+};
 // import axios from "axios";
 // import {
 //   loginRequest,

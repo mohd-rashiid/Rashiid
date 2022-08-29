@@ -12,11 +12,18 @@ import {
   DropdownItem,
 } from "reactstrap";
 import Logout from "../pages/Logout";
+import { logoutApi } from "../Store/Login/useApi";
+import { useDispatch } from "react-redux";
 
 function Nav() {
   let navigate = useNavigate();
-
+  const dispatch = useDispatch();
   // const location = useLocation()
+
+  const handleLogout = () => {
+    dispatch(logoutApi(navigate));
+  };
+
   return (
     <>
       {/* {location.pathname!="/Login"?<Nav />:""} */}
@@ -84,7 +91,7 @@ function Nav() {
               aria-describedby="search-addon"
               style={{
                 marginLeft: "-400px",
-                marginRight: "400px",
+                marginRight: "200px",
                 borderRadius: "15px",
                 display: "flex",
                 alignItems: "flex-start",
@@ -134,24 +141,29 @@ function Nav() {
               <DropdownItem header>
                 {" "}
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
-                  view profile
+                  View profile
                 </Link>
               </DropdownItem>
-              <DropdownItem disabled>
+              <DropdownItem header>
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
                   Settings
                 </Link>
               </DropdownItem>
-              <DropdownItem>
+              <DropdownItem header>
                 {/* <Link style={{ textDecoration: "none" }} to="/Logout">
                   LogOut
                 </Link> */}
-                <a
-                  style={{ textDecoration: "none", color: "black" }}
-                  href="/home"
+                <Link
+                  onClick={() => handleLogout()}
+                  to={"#!"}
+                  style={{
+                    textDecoration: "none",
+                    color: "black",
+                    cursor: "pointer",
+                  }}
                 >
-                  Logout
-                </a>
+                  logout
+                </Link>
               </DropdownItem>
               {/* <DropdownItem divider />
               <DropdownItem>Another Action</DropdownItem> */}
