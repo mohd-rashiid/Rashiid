@@ -2,6 +2,8 @@ import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionType";
 import { LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAIL } from "./actionType";
 // import { Navigate } from "react-router-dom";
 
+//login
+
 export const loginRequest = (input) =>
   // console.log(input),
   ({
@@ -18,6 +20,8 @@ export const loginFail = (error) => ({
   type: LOGIN_FAIL,
   payload: error,
 });
+
+// logout
 
 export const logoutRequest = () => ({
   type: LOGOUT_REQUEST,

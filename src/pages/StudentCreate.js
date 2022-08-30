@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -14,9 +14,38 @@ import Nav from "../component/Nav";
 import SideBar from "../component/SideBar";
 import Footer from "../component/Footer";
 import Layout from "../component/layout";
+import { useDispatch } from "react-redux";
+import { createApi } from "../store/useApi";
 
-function StudentDetails(Change) {
+function StudentDetails() {
+  const dispatch = useDispatch();
+
+  const [input, setInput] = useState({});
+
+  const Handle = (e) => {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const navigate = useNavigate();
+
+  const handleSubmitCreate = (e) => {
+    e.preventDefault();
+
+    if (input) {
+      dispatch(createApi(input, navigate));
+    }
+  };
+
+  // function Handle(e) {
+  //   const Data = { ...status };
+  //   Data[e.target.id] = e.target.value;
+  //   setStatus(Data);
+
+  //   // console.log(Data);
+  // }
 
   return (
     <>
@@ -28,7 +57,7 @@ function StudentDetails(Change) {
               <Card>
                 <CardBody>
                   <CardTitle>
-                    <h1>Student-Details</h1>
+                    <h1>Student-Create</h1>
                   </CardTitle>
                   <Form>
                     <Row>
@@ -39,8 +68,10 @@ function StudentDetails(Change) {
                           </label>
                           <input
                             type="text"
+                            name="full_name"
                             className="form-control"
                             required
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>
@@ -53,8 +84,10 @@ function StudentDetails(Change) {
                           </label>
                           <input
                             type="e-mail"
+                            name="email"
                             className="form-control"
                             required
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>
@@ -65,8 +98,10 @@ function StudentDetails(Change) {
                           </label>
                           <input
                             type="number"
+                            name="phone"
                             className="form-control"
                             required
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>
@@ -79,8 +114,10 @@ function StudentDetails(Change) {
                           </label>
                           <input
                             type="textarea"
+                            name="address"
                             className="form-control"
                             requied
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>
@@ -93,8 +130,10 @@ function StudentDetails(Change) {
                           </label>
                           <input
                             type="date"
+                            name="dob"
                             className="form-control"
                             required
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>
@@ -107,8 +146,10 @@ function StudentDetails(Change) {
                           </label>
                           <input
                             type="date"
+                            name="start_date"
                             className="form-control"
                             required
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>
@@ -119,8 +160,10 @@ function StudentDetails(Change) {
                           </label>
                           <input
                             type="date"
+                            name="end_date"
                             className="form-control"
                             required
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>
@@ -130,7 +173,13 @@ function StudentDetails(Change) {
                         <label className="col-form-label">
                           <b>Designation:</b>
                         </label>
-                        <input type="text" className="form-control" required />
+                        <input
+                          type="text"
+                          name="designation"
+                          className="form-control"
+                          required
+                          onChange={(e) => Handle(e)}
+                        />
                       </div>
                     </Row>
                     <div className="mt-3 d-flex justify-content-end">
@@ -149,11 +198,14 @@ function StudentDetails(Change) {
                         back
                       </Button>
                       <Button
-                        style={{
-                          backgroundColor: "MediumSeaGreen",
-                          padding: "3px 20px 3px 20px",
-                          borderRadius: "5px",
-                        }}
+                        // style={{
+                        //   backgroundColor: "MediumSeaGreen",
+                        //   padding: "3px 20px 3px 20px",
+                        //   borderRadius: "5px",
+                        // }}
+                        type="button"
+                        color="success"
+                        onClick={handleSubmitCreate}
                       >
                         {" "}
                         Create

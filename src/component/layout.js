@@ -6,7 +6,7 @@ import SideBar from "./SideBar";
 
 function Layout({ children }) {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   return (
     <div>
       <div style={{ display: location.pathname === "/" && "none" }}>

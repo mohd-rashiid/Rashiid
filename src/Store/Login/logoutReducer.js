@@ -19,7 +19,7 @@ const LogoutReducer = (state = initiailState, action) => {
       return {
         ...state,
         loading: "false",
-        userDetails: clear,
+        userDetails: "",
         error: "false",
       };
     case LOGOUT_FAIL:

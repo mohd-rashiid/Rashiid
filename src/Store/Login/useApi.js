@@ -5,6 +5,7 @@ import {
   loginSuccess,
   logoutFail,
   logoutRequest,
+  logoutsuccess,
 } from "./action";
 
 export const loginApi = (input, navigate) => {
@@ -46,7 +47,7 @@ export const logoutApi = (navigate) => {
       const res = await AxiosApi.post(`/account/logout`, token);
       console.log(res);
       if (res) {
-        dispatch(loginSuccess(res));
+        dispatch(logoutsuccess(res));
         sessionStorage.clear();
         navigate("/");
       }

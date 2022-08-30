@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import Layout from "../component/layout";
 
-function Students() {
+function Students(studentData) {
   return (
     <div>
       <Layout>
