@@ -12,7 +12,9 @@ import {
   DropdownItem,
 } from "reactstrap";
 import Logout from "../pages/Logout";
-import { logoutApi } from "../Store/Login/useApi";
+
+import { logoutApi } from "../store/Login/useApi";
+
 import { useDispatch } from "react-redux";
 
 function Nav() {

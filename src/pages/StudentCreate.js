@@ -15,7 +15,8 @@ import SideBar from "../component/SideBar";
 import Footer from "../component/Footer";
 import Layout from "../component/layout";
 import { useDispatch } from "react-redux";
-import { createApi } from "../store/useApi";
+// import { createApi } from "../Store/useApi";
+import { createApi } from "../store/students/useApi";
 
 function StudentDetails() {
   const dispatch = useDispatch();
@@ -206,6 +207,7 @@ function StudentDetails() {
                         type="button"
                         color="success"
                         onClick={handleSubmitCreate}
+                        requied
                       >
                         {" "}
                         Create

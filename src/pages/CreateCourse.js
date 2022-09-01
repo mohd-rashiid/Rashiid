@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
 import Footer from "../component/Footer";
 import Layout from "../component/layout";
 import Nav from "../component/Nav";
 import SideBar from "../component/SideBar";
+import { createCourseApi } from "../store/courseDetails/useApi";
 
 function CreateCourse() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [values, setValues] = useState({});
+
+  const Control = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const hanSubBtnCreateCourse = (e) => {
+    e.preventDefault();
+    if (values) {
+      dispatch(createCourseApi(values, navigate));
+    }
+  };
+
+  // console.log(values.course_name);
+
   return (
     <div style={{ height: "1000px" }}>
       <Layout>
@@ -22,13 +43,25 @@ function CreateCourse() {
                   <label className=" col=-form-label">
                     <b>Course Name:</b>
                   </label>
-                  <input type="text" className="form-control" required />
+                  <input
+                    type="text"
+                    className="form-control"
+                    name="course_name"
+                    required
+                    onChange={(e) => Control(e)}
+                  />
                 </div>
                 <div className="form-group">
                   <label className=" col=-form-label">
                     <b>Duration:</b>
                   </label>
-                  <input type="number" className="form-control" required />
+                  <input
+                    type="number"
+                    name="duration"
+                    className="form-control"
+                    required
+                    onChange={(e) => Control(e)}
+                  />
                 </div>
                 <div className="form-group">
                   <label className=" col=-form-label">
@@ -36,21 +69,37 @@ function CreateCourse() {
                   </label>
                   <input
                     type="text"
+                    name="course_category"
                     placeholder="example,Front-end,back-end ext......"
                     className="form-control"
                     required
+                    onChange={(e) => Control(e)}
                   />
                 </div>
                 <div>
-                  <input
+                  {/* <Button
                     style={{
-                      color: "white",
-                      backgroundColor: "MediumSeaGreen ",
+                      marginLeft: "439px",
+                      color: "black",
+                      backgroundColor: "white",
                       padding: "3px 20px 3px 20px",
                       borderRadius: "5px",
                     }}
                     type="submit"
-                    className="btn  my-3 "
+                    onClick={hanSubBtnCreateCourse}
+                  >
+                    {" "}
+                    Create
+                  </Button> */}
+                  <input
+                    style={{
+                      backgroundColor: "MediumSeaGreen",
+                      color: "white",
+                      padding: "3px 20px 3px 20px",
+                    }}
+                    onClick={hanSubBtnCreateCourse}
+                    type="submit"
+                    className="btn  my-3"
                     value="Create"
                   />
 

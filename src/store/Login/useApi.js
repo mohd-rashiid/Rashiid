@@ -1,4 +1,5 @@
-import { AxiosApi } from "../../AxiosMethod";
+// import { AxiosApi } from "../AxiosMethod";
+import { AxiosApi } from "../AxiosMethod";
 import {
   loginFail,
   loginRequest,
@@ -14,7 +15,7 @@ export const loginApi = (input, navigate) => {
     dispatch(loginRequest(input));
 
     try {
-      const res = await AxiosApi.post(`/account/login`, input);
+      const res = await AxiosApi.post(`/account/login/`, input);
       console.log(res);
       dispatch(loginSuccess(res));
 
@@ -44,7 +45,7 @@ export const logoutApi = (navigate) => {
 
     try {
       const token = sessionStorage.getItem("token");
-      const res = await AxiosApi.post(`/account/logout`, token);
+      const res = await AxiosApi.post(`/account/logout/`, token);
       console.log(res);
       if (res) {
         dispatch(logoutsuccess(res));

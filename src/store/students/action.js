@@ -1,8 +1,8 @@
 import { CREATE_REQUEST, CREATE_SUCCESS, CREATE_FAIL } from "./actiontype";
 
-export const createRequest = (inputData) => ({
+export const createRequest = (input) => ({
   type: CREATE_REQUEST,
-  payload: inputData,
+  payload: input,
 });
 export const createSuccess = (userDetails) => ({
   type: CREATE_SUCCESS,

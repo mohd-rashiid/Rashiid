@@ -1,12 +1,33 @@
-import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
 import Layout from "../component/layout";
 import Nav from "../component/Nav";
 import SideBar from "../component/SideBar";
+import { useState } from "react";
+import { createCourseCategoryApi } from "../store/courseCategory/useApii";
 
 function CourseCategory() {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const [data, setData] = useState({});
+
+  const Handle = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const hanSubBtnCreateCourseCategory = (e) => {
+    e.preventDefault();
+
+    if (data) {
+      dispatch(createCourseCategoryApi(data, navigate));
+    }
+  };
   return (
     <div>
       <Layout>
@@ -22,13 +43,25 @@ function CourseCategory() {
                     <label className="col-form-label">
                       <b>Category Name:</b>
                     </label>
-                    <input type="text" className="form-control" requied />
+                    <input
+                      type="text"
+                      className="form-control"
+                      requied
+                      name="course_category_name"
+                      onChange={(e) => Handle(e)}
+                    />
                   </div>
                   <div className="form-group">
                     <label className="col-form-label">
                       <b>Designation:</b>
                     </label>
-                    <input type="text" className="form-control" required />
+                    <input
+                      type="text"
+                      className="form-control"
+                      required
+                      name="designation"
+                      onChange={(e) => Handle(e)}
+                    />
                   </div>
 
                   <input
@@ -37,6 +70,7 @@ function CourseCategory() {
                       color: "white",
                       padding: "3px 20px 3px 20px",
                     }}
+                    onClick={hanSubBtnCreateCourseCategory}
                     type="Submit"
                     className="btn  my-3"
                     value="Create"
