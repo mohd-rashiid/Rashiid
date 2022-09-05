@@ -25,6 +25,7 @@ import UpdateCourses from "./pages/UpdateCourses";
 import UpdateCategory from "./pages/UpdateCategory";
 import UpdateDetails from "./pages/UpdateDetails";
 import Logout from "./pages/Logout";
+import "./App.css";
 
 function App() {
   // window.isNav = true;

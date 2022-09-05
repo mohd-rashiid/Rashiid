@@ -34,6 +34,13 @@ const LoginReducer = (state = initiailState, action) => {
 };
 
 export default LoginReducer;
+
+// const initiailState = {
+//   loading: false,
+//   error: "",
+//   userDetails: [],
+// };
+
 // import {
 //   LOGIN_REQUEST,
 //   LOGIN_USER_FAIL,

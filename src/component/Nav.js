@@ -32,7 +32,8 @@ function Nav() {
 
       <nav
         // style={{ position: "fixed" }}
-        className="navbar navbar-expand-lg navbar-secondary      bg-secondary"
+        className="navbar navbar-expand-lg navbar-secondary"
+        style={{ backgroundColor: "#19232b" }}
       >
         {/* <button 
         style={{color:"white",backgroundColor:"black"}}
@@ -138,7 +139,12 @@ function Nav() {
           </div>
           {/* <FaUserCircle /> */}
           <UncontrolledDropdown>
-            <DropdownToggle caret>Admin</DropdownToggle>
+            <DropdownToggle
+              caret
+              style={{ backgroundColor: "white", color: "black" }}
+            >
+              Admin
+            </DropdownToggle>
             <DropdownMenu>
               <DropdownItem header>
                 {" "}

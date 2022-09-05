@@ -1,4 +1,11 @@
-import { LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionType";
+import {
+  LOGIN_FAIL,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  PROFILE_FAIL,
+  PROFILE_REQUEST,
+  PROFILE_SUCCESS,
+} from "./actionType";
 import { LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAIL } from "./actionType";
 // import { Navigate } from "react-router-dom";
 
@@ -36,6 +43,18 @@ export const logoutFail = (error) => ({
   payload: error,
 });
 
+export const profileRequest = () => ({
+  type: PROFILE_REQUEST,
+  payload: "",
+});
+export const profileSuccess = (res) => ({
+  type: PROFILE_SUCCESS,
+  payload: res,
+});
+export const profileFail = (error) => ({
+  type: PROFILE_FAIL,
+  payload: error,
+});
 // import {
 //   LOGIN_REQUEST,
 //   LOGIN_USER,

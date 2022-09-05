@@ -10,11 +10,11 @@ function SideBar() {
       style={{
         // objectFit:"hover",
         position: "revert-layer",
-        background: " #ADD8E6",
+        background: "",
         width: "300px",
         height: "100%",
         padding: "20px ",
-        scrollbarColor: "red",
+        backgroundColor: "#c7e0f4",
       }}
     >
       <h2 style={{ color: "black", fontSize: "25px" }}>

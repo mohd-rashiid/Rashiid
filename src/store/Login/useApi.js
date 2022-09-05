@@ -7,6 +7,9 @@ import {
   logoutFail,
   logoutRequest,
   logoutsuccess,
+  profileRequest,
+  profileFail,
+  profileSuccess,
 } from "./action";
 
 export const loginApi = (input, navigate) => {
@@ -45,19 +48,47 @@ export const logoutApi = (navigate) => {
 
     try {
       const token = sessionStorage.getItem("token");
-      const res = await AxiosApi.post(`/account/logout/`, token);
+      const res = await AxiosApi.post(`/account/logout/ `, token);
       console.log(res);
       if (res) {
         dispatch(logoutsuccess(res));
-        sessionStorage.clear();
         navigate("/");
+
+        sessionStorage.clear("token");
       }
     } catch (error) {
+      console.log(error);
+
       // console.log(error?.response?.data);
       dispatch(logoutFail(error?.response?.data));
     }
   };
 };
+
+export const profileApi = () => {
+  // console.log(input);
+  return async (dispatch) => {
+    dispatch(profileRequest());
+
+    try {
+      // const token = sessionStorage.getItem("token");
+      const res = await AxiosApi.get(`/account/profile/`);
+      console.log(res.data);
+      if (res) {
+        dispatch(profileSuccess(res.data));
+        // navigate("/");
+
+        // sessionStorage.clear("token");
+      }
+    } catch (error) {
+      console.log(error);
+
+      // console.log(error?.response?.data);
+      dispatch(profileFail(error?.response?.data));
+    }
+  };
+};
+
 // import axios from "axios";
 // import {
 //   loginRequest,

@@ -17,6 +17,7 @@ import Layout from "../component/layout";
 import { useDispatch } from "react-redux";
 // import { createApi } from "../Store/useApi";
 import { createApi } from "../store/students/useApi";
+import Students from "./Students";
 
 function StudentDetails() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function StudentDetails() {
 
   const handleSubmitCreate = (e) => {
     e.preventDefault();
+    // console.log(input.hits);
 
     if (input) {
       dispatch(createApi(input, navigate));
@@ -214,6 +216,9 @@ function StudentDetails() {
                       </Button>
                     </div>
                   </Form>
+                  {/* {input.map((Students) => (
+                      <Students />
+                    ))} */}
                 </CardBody>
               </Card>
             </Col>
