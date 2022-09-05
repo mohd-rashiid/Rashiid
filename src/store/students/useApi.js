@@ -5,6 +5,9 @@ import {
   getStudentdataFail,
   getStudentdataRequest,
   getStudentdatasuccess,
+  singleViewfail,
+  singleViewRequest,
+  singleViewSuccess,
 } from "./action";
 // import { AxiosApi } from "../../../AxiosMethod";
 import { AxiosApi } from "../AxiosMethod";
@@ -41,6 +44,24 @@ export const getDataApi = () => {
     } catch (error) {
       // console.log(error);
       dispatch(getStudentdataFail(error?.response?.data));
+    }
+  };
+};
+
+export const singleViewApi = (id) => {
+  //   console.log(input);
+  // console.log();
+  return async (dispatch) => {
+    dispatch(singleViewRequest(id));
+
+    try {
+      const res = await AxiosApi.get(`/student/student/${id}`);
+      // console.log(res);
+      dispatch(singleViewSuccess(res));
+      // navigate("/students");
+    } catch (error) {
+      // console.log(error);
+      dispatch(singleViewfail(error?.response?.data));
     }
   };
 };

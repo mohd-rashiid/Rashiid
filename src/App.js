@@ -24,8 +24,11 @@ import Layout from "./component/layout";
 import UpdateCourses from "./pages/UpdateCourses";
 import UpdateCategory from "./pages/UpdateCategory";
 import UpdateDetails from "./pages/UpdateDetails";
-import Logout from "./pages/Logout";
+import StudentView from "./pages/StudentView";
+// import student_view from "./pages/StudentView";
+// import Logout from "./pages/Logout";
 import "./App.css";
+// import StudentView from "./pages/StudentView";
 
 function App() {
   // window.isNav = true;
@@ -50,6 +53,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/StudentCreate" element={<StudentCreate />} />
           <Route path="/Students" element={<Students />} />
+          <Route path="/StudentView/:id" element={<StudentView />} />
           <Route path="/updatedetails" element={<UpdateDetails />} />
           <Route path="/CreateCategory" element={<CourseCategory />} />
           <Route path="/CategoryList" element={<CategoryList />} />

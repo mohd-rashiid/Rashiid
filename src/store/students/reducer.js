@@ -6,12 +6,17 @@ import {
   GET_STUDENT_DATA_FAIL,
   GET_STUDENT_DATA_REQUEST,
   GET_STUDENT_DATA_SUCCESS,
+  SINGLE_VIEW_FAIL,
+  SINGLE_VIEW_REQUEST,
+  SINGLE_VIEW_SUCCESS,
 } from "./actiontype";
 
 const initiailState = {
   loading: false,
   error: "",
   userDetails: [],
+  studentData: {},
+  singleData: {},
 };
 
 const createReducer = (state = initiailState, action) => {
@@ -47,10 +52,31 @@ const createReducer = (state = initiailState, action) => {
       return {
         ...state,
         loading: false,
-        userDetails: action.payload,
+        studentData: action.payload,
         error: "",
       };
     case GET_STUDENT_DATA_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    //single view
+
+    case SINGLE_VIEW_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case SINGLE_VIEW_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        singleData: action.payload,
+        error: "",
+      };
+    case SINGLE_VIEW_FAIL:
       return {
         ...state,
         loading: false,

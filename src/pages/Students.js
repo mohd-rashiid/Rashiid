@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Button,
   Col,
@@ -13,13 +13,37 @@ import {
 } from "reactstrap";
 import Layout from "../component/layout";
 import { AxiosApi } from "../store/AxiosMethod";
+import { getDataApi } from "../store/students/useApi";
+// import StudentView from "..pages/StudentView";
+
+import { map } from "lodash";
+import { Link } from "react-router-dom";
 
 function Students() {
   const dispatch = useDispatch();
 
+  const { studentData, loading } = useSelector((state) => ({
+    studentData: state.createReducer.studentData,
+    loading: state.loading,
+  }));
+
+  console.log(studentData?.data?.results);
+
+  // const AllData = () => {
+  //   studentData?.data?.results.map((item, key) => console.log(item.email));
+  // };
+
   useEffect(() => {
-    // dispatch(getAllStudent());
+    dispatch(getDataApi());
   }, []);
+
+  // const Data = map(studentData?.data?.results, (item, key) => ({
+  //   ...item,
+  //   key: key,
+
+  // }));
+
+  const tableData = studentData?.data?.results;
 
   return (
     <div>
@@ -32,86 +56,35 @@ function Students() {
               {/* <th>phone</th> */}
               <th>full_name</th>
               <th>address</th>
-              {/* <th>dob</th>
               <th>start_date</th>
+              <th>End_date</th>
+              {/* <th>dob</th>
               <th>end_date</th> */}
-              <th>designation</th>
-              <th>actions</th>
+              {/* <th>designation</th> */}
+              {/* <th>actions</th> */}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <Button style={{ color: "black", backgroundColor: "white" }}>
-                  View Details
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <Button style={{ color: "black", backgroundColor: "white" }}>
-                  View Details
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <Button style={{ color: "black", backgroundColor: "white" }}>
-                  View Details
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <Button style={{ color: "black", backgroundColor: "white" }}>
-                  View Details
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <Button style={{ color: "black", backgroundColor: "white" }}>
-                  View Details
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <Button style={{ color: "black", backgroundColor: "white" }}>
-                  View Details
-                </Button>
-              </td>
-            </tr>
+            {map(tableData, (item, key) => (
+              <tr key={key}>
+                <th scope="row">{key + 1}</th>
+                <td>{item?.email}</td>
+                <td>{item?.full_name}</td>
+                <td>{item?.address}</td>
+                <td>{item?.start_date}</td>
+                <td>{item?.end_date}</td>
+                <td>
+                  {" "}
+                  <Link to={"/StudentView/${item?.id} "}>
+                    <Button
+                      style={{ color: "black", backgroundColor: "white" }}
+                    >
+                      View Details
+                    </Button>
+                  </Link>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </Layout>

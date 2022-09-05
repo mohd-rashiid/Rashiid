@@ -145,7 +145,7 @@ function StudentDetails() {
                       <Col xl={6}>
                         <div className="form-group">
                           <label className="col-form-label">
-                            <b>start Date:</b>
+                            <b>Start Date:</b>
                           </label>
                           <input
                             type="date"

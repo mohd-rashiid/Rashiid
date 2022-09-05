@@ -6,6 +6,9 @@ import {
   GET_STUDENT_DATA_REQUEST,
   GET_STUDENT_DATA_SUCCESS,
   GET_STUDENT_DATA_FAIL,
+  SINGLE_VIEW_REQUEST,
+  SINGLE_VIEW_SUCCESS,
+  SINGLE_VIEW_FAIL,
 } from "./actiontype";
 
 export const createRequest = (input) => ({
@@ -21,15 +24,32 @@ export const createFail = (error) => ({
   payload: error,
 });
 
+//student_datas
+
 export const getStudentdataRequest = () => ({
   type: GET_STUDENT_DATA_REQUEST,
   payload: "",
 });
-export const getStudentdatasuccess = () => ({
+export const getStudentdatasuccess = (studentData) => ({
   type: GET_STUDENT_DATA_SUCCESS,
-  payload: "",
+  payload: studentData,
 });
 export const getStudentdataFail = () => ({
   type: GET_STUDENT_DATA_FAIL,
+  payload: "",
+});
+
+// single view datas
+
+export const singleViewRequest = () => ({
+  type: SINGLE_VIEW_REQUEST,
+  payload: "",
+});
+export const singleViewSuccess = () => ({
+  type: SINGLE_VIEW_SUCCESS,
+  payload: "",
+});
+export const singleViewfail = () => ({
+  type: SINGLE_VIEW_FAIL,
   payload: "",
 });
