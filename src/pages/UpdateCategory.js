@@ -13,7 +13,10 @@ function UpdateCategory() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const params = useParams();
-  const [storage, setStorage] = useState({});
+  const [storage, setStorage] = useState({
+    course_category_name: "",
+    designation: "",
+  });
 
   // const [Store, setStore] = useState(singleView);
 
@@ -30,8 +33,6 @@ function UpdateCategory() {
     })
   );
 
-  // console.log("catId", catId);
-
   useEffect(() => {
     dispatch(CategorySingleViewApi(CatId));
   }, [dispatch]);
@@ -41,6 +42,7 @@ function UpdateCategory() {
   }, [singleView]);
 
   const CatId = params.id;
+  // console.log(CatId);
 
   const Handle = (e, catId) => {
     setStorage({
@@ -48,12 +50,15 @@ function UpdateCategory() {
       [e.target.name]: e.target.value,
     });
   };
-  // console.log(Store);
+  // console.log(Handle);
+
+  // const HandleSubmitUpdateCourseCategory = () => {
+  //   dispatch(CourseCategoryUpdateApi(CatId, navigate, storage));
+  // };
 
   const HandleSubmitUpdateCourseCategory = () => {
     dispatch(CourseCategoryUpdateApi(CatId, navigate, storage));
   };
-
   // console.log(storage);
   // e.preventDefault();
   // const Data = {
@@ -92,7 +97,7 @@ function UpdateCategory() {
                       className="form-control"
                       requied
                       onChange={(e) => Handle(e)}
-                      value={storage?.course_category_name || ""}
+                      value={storage?.course_category_name}
                       name="course_category_name"
                     />
                   </div>
