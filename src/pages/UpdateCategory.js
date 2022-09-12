@@ -16,6 +16,7 @@ function UpdateCategory() {
   const [storage, setStorage] = useState({
     course_category_name: "",
     designation: "",
+    id: "",
   });
 
   // const [Store, setStore] = useState(singleView);
@@ -37,6 +38,7 @@ function UpdateCategory() {
     dispatch(CategorySingleViewApi(CatId));
   }, [dispatch]);
 
+  console.log(singleView);
   useEffect(() => {
     setStorage(singleView);
   }, [singleView]);
@@ -95,7 +97,7 @@ function UpdateCategory() {
                     <input
                       type="text"
                       className="form-control"
-                      requied
+                      requied={"true"}
                       onChange={(e) => Handle(e)}
                       value={storage?.course_category_name}
                       name="course_category_name"
@@ -106,7 +108,7 @@ function UpdateCategory() {
                       <b>Designation:</b>
                     </label>
                     <input
-                      required
+                      requied={"true"}
                       type="text"
                       className="form-control"
                       onChange={(e) => Handle(e)}
