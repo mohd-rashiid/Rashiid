@@ -47,7 +47,7 @@ function CreateCourse() {
                     type="text"
                     className="form-control"
                     name="course_name"
-                    required
+                    // required
                     onChange={(e) => Control(e)}
                   />
                 </div>
@@ -59,7 +59,7 @@ function CreateCourse() {
                     type="number"
                     name="duration"
                     className="form-control"
-                    required
+                    // required
                     onChange={(e) => Control(e)}
                   />
                 </div>
@@ -67,14 +67,32 @@ function CreateCourse() {
                   <label className=" col=-form-label">
                     <b>Course Category:</b>
                   </label>
+
                   <input
+                    type="text"
+                    required
+                    name="Course_category"
+                    list="browsers"
+                    className="form-control"
+                    placeholder="select  a course-category"
+                    // name="browser"
+                  />
+                  {/* <datalist id="browsers">
+                    <option value=" data" />
+                    <option value="students" />
+                    <option value="ome" />
+                    <option value="nlz" />
+                    <option value="ok" />
+                  </datalist> */}
+                  {/* <input type="submit" /> */}
+                  {/* <input
                     type="text"
                     name="course_category"
                     placeholder="example,Front-end,back-end ext......"
                     className="form-control"
                     required
                     onChange={(e) => Control(e)}
-                  />
+                  /> */}
                 </div>
                 <div>
                   {/* <Button
@@ -101,6 +119,7 @@ function CreateCourse() {
                     type="submit"
                     className="btn  my-3"
                     value="Create"
+                    required
                   />
 
                   <Button

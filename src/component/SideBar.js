@@ -18,7 +18,7 @@ function SideBar() {
       }}
     >
       <h2 style={{ color: "black", fontSize: "25px" }}>
-        <BsFillPersonFill style={{ color: "black" }} /> <b>Student Details</b>
+        <BsFillPersonFill style={{ color: "black" }} /> <b>Students</b>
       </h2>
       <ul style={{ fontSize: "10px" }}>
         <Link
@@ -40,6 +40,36 @@ function SideBar() {
           style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
         >
           Update Students
+        </Link>
+      </ul>
+      <h2 style={{ color: "black", fontSize: "25px" }}>
+        <BiStore style={{ color: "black" }} />
+        <b>Courses</b>
+      </h2>
+      <ul style={{ fontSize: "22px" }}>
+        <Link
+          to="/Courses"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          All Courses
+        </Link>
+        <br></br>
+
+        <Link
+          to="/CreateCourse"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          Create Course
+        </Link>
+        <br></br>
+        <Link
+          to="/updatecourse"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          Update Courses
         </Link>
       </ul>
 
@@ -66,42 +96,11 @@ function SideBar() {
         <br></br>
 
         <Link
-          to="/updatecategory"
+          to="/updatecategory/:id"
           style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
         >
           {" "}
           Update Category
-        </Link>
-      </ul>
-
-      <h2 style={{ color: "black", fontSize: "25px" }}>
-        <BiStore style={{ color: "black" }} />
-        <b>Course Details</b>
-      </h2>
-      <ul style={{ fontSize: "22px" }}>
-        <Link
-          to="/Courses"
-          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
-        >
-          {" "}
-          All Courses
-        </Link>
-        <br></br>
-
-        <Link
-          to="/CreateCourse"
-          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
-        >
-          {" "}
-          Create Course
-        </Link>
-        <br></br>
-        <Link
-          to="/updatecourse"
-          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
-        >
-          {" "}
-          Update Courses
         </Link>
       </ul>
     </div>

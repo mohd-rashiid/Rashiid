@@ -3,12 +3,18 @@ import {
   CREATE_FAIL,
   CREATE_REQUEST,
   CREATE_SUCCESS,
+  DELETE_STUDENT_FAIL,
+  DELETE_STUDENT_REQUEST,
+  DELETE_STUDENT_SUCCESS,
   GET_STUDENT_DATA_FAIL,
   GET_STUDENT_DATA_REQUEST,
   GET_STUDENT_DATA_SUCCESS,
   SINGLE_VIEW_FAIL,
   SINGLE_VIEW_REQUEST,
   SINGLE_VIEW_SUCCESS,
+  UPDATE_STUDENT_DATA_FAIL,
+  UPDATE_STUDENT_DATA_REQUEST,
+  UPDATE_STUDENT_DATA_SUCCESS,
 } from "./actiontype";
 
 const initiailState = {
@@ -17,6 +23,8 @@ const initiailState = {
   userDetails: [],
   studentData: {},
   singleData: {},
+  deleteStudent: {},
+  updateStudent: {},
 };
 
 const createReducer = (state = initiailState, action) => {
@@ -62,7 +70,7 @@ const createReducer = (state = initiailState, action) => {
         error: action.payload,
       };
 
-    //single view
+    //  single view  //
 
     case SINGLE_VIEW_REQUEST:
       return {
@@ -83,6 +91,49 @@ const createReducer = (state = initiailState, action) => {
         error: action.payload,
       };
 
+    // delete student //
+
+    case DELETE_STUDENT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case DELETE_STUDENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        deleteData: action.payload,
+        error: "",
+      };
+    case DELETE_STUDENT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    // update student data //
+
+    case UPDATE_STUDENT_DATA_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case UPDATE_STUDENT_DATA_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        updateStudent: action.payload,
+        error: "",
+      };
+
+    case UPDATE_STUDENT_DATA_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

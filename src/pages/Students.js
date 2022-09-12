@@ -14,6 +14,8 @@ import {
 import Layout from "../component/layout";
 import { AxiosApi } from "../store/AxiosMethod";
 import { getDataApi } from "../store/students/useApi";
+import { IconName, IoEye, IoEyeOutline } from "react-icons/io5";
+
 // import StudentView from "..pages/StudentView";
 
 import { map } from "lodash";
@@ -27,7 +29,7 @@ function Students() {
     loading: state.loading,
   }));
 
-  console.log(studentData?.data?.results);
+  // console.log(studentData?.data?.results);
 
   // const AllData = () => {
   //   studentData?.data?.results.map((item, key) => console.log(item.email));
@@ -58,10 +60,11 @@ function Students() {
               <th>address</th>
               <th>start_date</th>
               <th>End_date</th>
+
               {/* <th>dob</th>
               <th>end_date</th> */}
               {/* <th>designation</th> */}
-              {/* <th>actions</th> */}
+              <th>actions</th>
             </tr>
           </thead>
           <tbody>
@@ -74,13 +77,19 @@ function Students() {
                 <td>{item?.start_date}</td>
                 <td>{item?.end_date}</td>
                 <td>
-                  {" "}
-                  <Link to={"/StudentView/${item?.id} "}>
-                    <Button
-                      style={{ color: "black", backgroundColor: "white" }}
-                    >
-                      View Details
-                    </Button>
+                  <Link
+                    style={{
+                      color: "black",
+                      // backgroundColor: "black",
+                      textDecoration: "none",
+
+                      // borderRadius: "5px",
+                    }}
+                    to={`/StudentView/${item?.id}`}
+                  >
+                    <IoEye style={{ fontSize: "25px" }} />
+
+                    {/* View Details */}
                   </Link>
                 </td>
               </tr>

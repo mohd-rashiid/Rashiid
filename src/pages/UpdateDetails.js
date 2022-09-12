@@ -1,5 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Button,
   Card,
@@ -12,9 +13,26 @@ import {
 } from "reactstrap";
 import Footer from "../component/Footer";
 import Layout from "../component/layout";
+import { UpdateApi } from "../store/students/useApi";
 
 function UpdateDetails() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const params = useParams();
+
+  const { updateStudent, loading, singleData } = useSelector((state) => ({
+    updateStudent: state.createReducer.updateStudent,
+    singleData: state.createReducer.singleData,
+
+    loading: state.loading,
+  }));
+
+  useEffect(() => {
+    dispatch(UpdateApi(CatId));
+  }, [dispatch]);
+
+  const CatId = params.id;
   return (
     <div>
       <Layout>
@@ -38,6 +56,7 @@ function UpdateDetails() {
                             type="text"
                             className="form-control"
                             required
+                            value={singleData.full_name}
                           />
                         </div>
                       </Col>
@@ -52,6 +71,7 @@ function UpdateDetails() {
                             type="e-mail"
                             className="form-control"
                             required
+                            value={singleData.email}
                           />
                         </div>
                       </Col>
@@ -64,6 +84,7 @@ function UpdateDetails() {
                             type="number"
                             className="form-control"
                             required
+                            value={singleData.phone}
                           />
                         </div>
                       </Col>
@@ -78,6 +99,7 @@ function UpdateDetails() {
                             type="textarea"
                             className="form-control"
                             requied
+                            value={singleData.address}
                           />
                         </div>
                       </Col>
@@ -92,6 +114,7 @@ function UpdateDetails() {
                             type="date"
                             className="form-control"
                             required
+                            value={singleData.dob}
                           />
                         </div>
                       </Col>
@@ -106,6 +129,7 @@ function UpdateDetails() {
                             type="date"
                             className="form-control"
                             required
+                            value={singleData.start_date}
                           />
                         </div>
                       </Col>
@@ -118,6 +142,7 @@ function UpdateDetails() {
                             type="date"
                             className="form-control"
                             required
+                            value={singleData.end_date}
                           />
                         </div>
                       </Col>
@@ -127,7 +152,12 @@ function UpdateDetails() {
                         <label className="col-form-label">
                           <b>Designation:</b>
                         </label>
-                        <input type="text" className="form-control" required />
+                        <input
+                          type="text"
+                          className="form-control"
+                          required
+                          value={singleData.designation}
+                        />
                       </div>
                     </Row>
                     <div className="mt-3 d-flex justify-content-end">

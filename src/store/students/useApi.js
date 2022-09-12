@@ -2,19 +2,26 @@ import {
   createFail,
   createRequest,
   createSuccess,
+  deleteStudentFail,
+  deleteStudentRequest,
+  deleteStudentSuccess,
   getStudentdataFail,
   getStudentdataRequest,
   getStudentdatasuccess,
   singleViewfail,
   singleViewRequest,
   singleViewSuccess,
+  updateStudentDataRequest,
+  updateStudentDataSuccess,
 } from "./action";
 // import { AxiosApi } from "../../../AxiosMethod";
 import { AxiosApi } from "../AxiosMethod";
 
+// create student//
+
 export const createApi = (input, navigate) => {
   //   console.log(input);
-  console.log(input);
+  // console.log(input);
   return async (dispatch) => {
     dispatch(createRequest(input));
 
@@ -29,6 +36,8 @@ export const createApi = (input, navigate) => {
     }
   };
 };
+
+// get studemts data //
 
 export const getDataApi = () => {
   //   console.log(input);
@@ -48,6 +57,8 @@ export const getDataApi = () => {
   };
 };
 
+// single view //
+
 export const singleViewApi = (id) => {
   //   console.log(input);
   // console.log();
@@ -57,11 +68,52 @@ export const singleViewApi = (id) => {
     try {
       const res = await AxiosApi.get(`/student/student/${id}`);
       // console.log(res);
-      dispatch(singleViewSuccess(res));
+      dispatch(singleViewSuccess(res.data));
       // navigate("/students");
     } catch (error) {
       // console.log(error);
       dispatch(singleViewfail(error?.response?.data));
+    }
+  };
+};
+// delete  student //
+
+export const deleteApi = (id, navigate) => {
+  //   console.log(input);
+  // console.log();
+  return async (dispatch) => {
+    dispatch(deleteStudentRequest(id));
+
+    try {
+      const res = await AxiosApi.delete(`/student/student/${id}`);
+      console.log(res);
+
+      dispatch(deleteStudentSuccess(res.data));
+      navigate("/Students");
+    } catch (error) {
+      // console.log(error);
+      dispatch(deleteStudentFail(error?.response?.data));
+    }
+  };
+};
+
+// update students //
+
+export const UpdateApi = (catId, navigate) => {
+  //   console.log(input);
+  // console.log();
+  return async (dispatch) => {
+    dispatch(updateStudentDataRequest(catId));
+
+    try {
+      const res = await AxiosApi.put(`/student/student/${catId}`);
+      console.log(res);
+
+      dispatch(updateStudentDataSuccess(res.data));
+      navigate("/StudentView");
+    } catch (error) {
+      // console.log(error);
+      dispatch(deleteStudentFail(error?.response?.data));
     }
   };
 };

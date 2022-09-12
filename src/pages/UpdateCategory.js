@@ -1,10 +1,56 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Button } from "reactstrap";
 import Layout from "../component/layout";
+import {
+  CategorySingleViewApi,
+  CourseCategoryUpdateApi,
+} from "../store/courseCategory/useApii";
+import CourseView from "./CourseView";
 
 function UpdateCategory() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const params = useParams();
+
+  const [Store, setStore] = useState({});
+
+  // console.log(setStore);
+  // console.log(Store);
+
+  const catId = params.id;
+
+  const { courseCategoryUpdate, loading, singleView } = useSelector(
+    (state) => ({
+      courseCategoryUpdate:
+        state.createCourseCategoryReducer.courseCategoryUpdate,
+      singleView: state.createCourseCategoryReducer.singleView,
+
+      loading: state.loading,
+    })
+  );
+  useEffect(() => {
+    dispatch(CategorySingleViewApi(catId));
+  }, [dispatch]);
+
+  const Handle = (e, catId) => {
+    setStore({
+      ...Store,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(Store);
+
+  const handleSubmitUpdateCourseCategory = () => {
+    // e.preventDefault();
+
+    if (Store) {
+      dispatch(CourseCategoryUpdateApi(Store, navigate));
+    }
+  };
+  // console.log(courseCategoryUpdate);
+
   return (
     <div>
       <Layout>
@@ -20,13 +66,28 @@ function UpdateCategory() {
                     <label className="col-form-label">
                       <b>Category Name:</b>
                     </label>
-                    <input type="text" className="form-control" requied />
+                    <input
+                      type="text"
+                      className="form-control"
+                      requied
+                      name="CategoryName"
+                      onChange={() => Handle()}
+                      // onChange={{ courseCategoryUpdatecourse_category_name }}
+                      value={singleView.course_category_name}
+                    />
                   </div>
                   <div className="form-group">
                     <label className="col-form-label">
                       <b>Designation:</b>
                     </label>
-                    <input type="text" className="form-control" required />
+                    <input
+                      name="Designation"
+                      onChange={() => Handle()}
+                      type="text"
+                      className="form-control"
+                      required
+                      value={singleView.designation}
+                    />
                   </div>
 
                   <input
@@ -36,9 +97,14 @@ function UpdateCategory() {
                       padding: "3px 20px 3px 20px",
                       borderRadius: "5px",
                     }}
-                    type="Submit"
+                    type="submit"
                     className="btn  my-3"
-                    value="Update"
+                    value={"Update"}
+                    // onChange={(handleSubmitUpdateCourseCategory) => {
+                    //   navigate("/CourseView");
+                    // }}
+
+                    onChange={handleSubmitUpdateCourseCategory}
                   />
                   <Button
                     style={{
@@ -49,7 +115,7 @@ function UpdateCategory() {
                       borderRadius: "5px",
                     }}
                     onClick={() => {
-                      navigate("/home");
+                      navigate("/CourseView/:${catId}");
                     }}
                   >
                     back

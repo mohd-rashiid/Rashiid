@@ -25,6 +25,7 @@ import UpdateCourses from "./pages/UpdateCourses";
 import UpdateCategory from "./pages/UpdateCategory";
 import UpdateDetails from "./pages/UpdateDetails";
 import StudentView from "./pages/StudentView";
+import CourseView from "./pages/CourseView";
 // import student_view from "./pages/StudentView";
 // import Logout from "./pages/Logout";
 import "./App.css";
@@ -57,8 +58,9 @@ function App() {
           <Route path="/updatedetails" element={<UpdateDetails />} />
           <Route path="/CreateCategory" element={<CourseCategory />} />
           <Route path="/CategoryList" element={<CategoryList />} />
+          <Route path="/CourseView/:id" element={<CourseView />} />
           <Route path="/CreateCourse" element={<CreateCourse />} />
-          <Route path="updatecategory" element={<UpdateCategory />} />
+          <Route path="/updatecategory/:id" element={<UpdateCategory />} />
           <Route path="/Courses" element={<Courses />} />
           <Route path="/updatecourse" element={<UpdateCourses />} />
           <Route path="/Login" element={<Login />} />
@@ -66,8 +68,6 @@ function App() {
 
           {/* <Route path="/home" element={<Navigate replace to="/" />} /> */}
         </Routes>
-
-        <Routes></Routes>
       </Router>
     </>
   );
