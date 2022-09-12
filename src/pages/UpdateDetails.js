@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -13,13 +13,15 @@ import {
 } from "reactstrap";
 import Footer from "../component/Footer";
 import Layout from "../component/layout";
-import { UpdateApi } from "../store/students/useApi";
+import { singleViewApi, UpdateStudentApi } from "../store/students/useApi";
 
 function UpdateDetails() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const params = useParams();
+
+  const [Store, setStore] = useState({});
 
   const { updateStudent, loading, singleData } = useSelector((state) => ({
     updateStudent: state.createReducer.updateStudent,
@@ -29,10 +31,27 @@ function UpdateDetails() {
   }));
 
   useEffect(() => {
-    dispatch(UpdateApi(CatId));
+    dispatch(singleViewApi(CatId));
   }, [dispatch]);
 
+  useEffect(() => {
+    setStore(singleData);
+  }, [singleData]);
+
   const CatId = params.id;
+
+  const Handle = (e, catId) => {
+    setStore({
+      ...Store,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const HandleStudentUpdate = () => {
+    dispatch(UpdateStudentApi(CatId, navigate, Store));
+  };
+
+  console.log(Store);
+
   return (
     <div>
       <Layout>
@@ -55,8 +74,11 @@ function UpdateDetails() {
                           <input
                             type="text"
                             className="form-control"
+                            // required={"true"}
                             required
-                            value={singleData.full_name}
+                            onChange={(e) => Handle(e)}
+                            value={Store?.full_name}
+                            name="full_name"
                           />
                         </div>
                       </Col>
@@ -70,8 +92,10 @@ function UpdateDetails() {
                           <input
                             type="e-mail"
                             className="form-control"
-                            required
-                            value={singleData.email}
+                            required={"true"}
+                            onChange={(e) => Handle(e)}
+                            value={Store?.email}
+                            name="email"
                           />
                         </div>
                       </Col>
@@ -83,8 +107,10 @@ function UpdateDetails() {
                           <input
                             type="number"
                             className="form-control"
-                            required
-                            value={singleData.phone}
+                            required={"true"}
+                            onChange={(e) => Handle(e)}
+                            value={Store?.phone}
+                            name={"phone"}
                           />
                         </div>
                       </Col>
@@ -98,8 +124,9 @@ function UpdateDetails() {
                           <input
                             type="textarea"
                             className="form-control"
-                            requied
-                            value={singleData.address}
+                            required={"true"}
+                            value={Store?.address}
+                            name="address"
                           />
                         </div>
                       </Col>
@@ -113,8 +140,10 @@ function UpdateDetails() {
                           <input
                             type="date"
                             className="form-control"
-                            required
-                            value={singleData.dob}
+                            required={"true"}
+                            onChange={(e) => Handle(e)}
+                            value={Store?.dob}
+                            name="dob"
                           />
                         </div>
                       </Col>
@@ -128,8 +157,10 @@ function UpdateDetails() {
                           <input
                             type="date"
                             className="form-control"
-                            required
-                            value={singleData.start_date}
+                            required={"true"}
+                            onChange={(e) => Handle(e)}
+                            value={Store?.start_date}
+                            name="start_date"
                           />
                         </div>
                       </Col>
@@ -141,8 +172,10 @@ function UpdateDetails() {
                           <input
                             type="date"
                             className="form-control"
-                            required
-                            value={singleData.end_date}
+                            required={"true"}
+                            onChange={(e) => Handle(e)}
+                            value={Store?.end_date}
+                            name="end_date"
                           />
                         </div>
                       </Col>
@@ -155,8 +188,10 @@ function UpdateDetails() {
                         <input
                           type="text"
                           className="form-control"
-                          required
-                          value={singleData.designation}
+                          required={"true"}
+                          onChange={(e) => Handle(e)}
+                          value={Store?.designation}
+                          name="designation"
                         />
                       </div>
                     </Row>
@@ -170,7 +205,7 @@ function UpdateDetails() {
                           borderRadius: "5px",
                         }}
                         onClick={() => {
-                          navigate("/home");
+                          navigate(`/StudentView/${CatId}`);
                         }}
                       >
                         back
@@ -181,6 +216,7 @@ function UpdateDetails() {
                           padding: "3px 20px 3px 20px",
                           borderRadius: "5px",
                         }}
+                        onClick={() => HandleStudentUpdate()}
                       >
                         {" "}
                         Update

@@ -13,13 +13,12 @@ function UpdateCategory() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const params = useParams();
+  const [storage, setStorage] = useState({});
 
-  const [Store, setStore] = useState({});
+  // const [Store, setStore] = useState(singleView);
 
   // console.log(setStore);
   // console.log(Store);
-
-  const catId = params.id;
 
   const { courseCategoryUpdate, loading, singleView } = useSelector(
     (state) => ({
@@ -30,25 +29,47 @@ function UpdateCategory() {
       loading: state.loading,
     })
   );
+
+  // console.log("catId", catId);
+
   useEffect(() => {
-    dispatch(CategorySingleViewApi(catId));
+    dispatch(CategorySingleViewApi(CatId));
   }, [dispatch]);
 
+  useEffect(() => {
+    setStorage(singleView);
+  }, [singleView]);
+
+  const CatId = params.id;
+
   const Handle = (e, catId) => {
-    setStore({
-      ...Store,
+    setStorage({
+      ...storage,
       [e.target.name]: e.target.value,
     });
   };
-  console.log(Store);
+  // console.log(Store);
 
-  const handleSubmitUpdateCourseCategory = () => {
-    // e.preventDefault();
-
-    if (Store) {
-      dispatch(CourseCategoryUpdateApi(Store, navigate));
-    }
+  const HandleSubmitUpdateCourseCategory = () => {
+    dispatch(CourseCategoryUpdateApi(CatId, navigate, storage));
   };
+
+  // console.log(storage);
+  // e.preventDefault();
+  // const Data = {
+  //   course_category_name: values.course_category_name,
+  //   designation: values.designation,
+  // };
+
+  // if (Data) {
+  //   // dispatch(CourseCategoryUpdateApi(Data, singleView?.id, navigate));
+  // }
+
+  // useEffect(() => {
+  //   setStore(singleView);
+  // });
+
+  // console.log(Store);
   // console.log(courseCategoryUpdate);
 
   return (
@@ -70,10 +91,9 @@ function UpdateCategory() {
                       type="text"
                       className="form-control"
                       requied
-                      name="CategoryName"
-                      onChange={() => Handle()}
-                      // onChange={{ courseCategoryUpdatecourse_category_name }}
-                      value={singleView.course_category_name}
+                      onChange={(e) => Handle(e)}
+                      value={storage?.course_category_name || ""}
+                      name="course_category_name"
                     />
                   </div>
                   <div className="form-group">
@@ -81,12 +101,12 @@ function UpdateCategory() {
                       <b>Designation:</b>
                     </label>
                     <input
-                      name="Designation"
-                      onChange={() => Handle()}
+                      required
                       type="text"
                       className="form-control"
-                      required
-                      value={singleView.designation}
+                      onChange={(e) => Handle(e)}
+                      value={storage?.designation}
+                      name="designation"
                     />
                   </div>
 
@@ -99,12 +119,12 @@ function UpdateCategory() {
                     }}
                     type="submit"
                     className="btn  my-3"
-                    value={"Update"}
+                    value="Update"
                     // onChange={(handleSubmitUpdateCourseCategory) => {
                     //   navigate("/CourseView");
                     // }}
 
-                    onChange={handleSubmitUpdateCourseCategory}
+                    onClick={() => HandleSubmitUpdateCourseCategory()}
                   />
                   <Button
                     style={{
@@ -115,7 +135,7 @@ function UpdateCategory() {
                       borderRadius: "5px",
                     }}
                     onClick={() => {
-                      navigate("/CourseView/:${catId}");
+                      navigate(`/CourseView/${CatId}`);
                     }}
                   >
                     back

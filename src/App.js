@@ -55,7 +55,7 @@ function App() {
           <Route path="/StudentCreate" element={<StudentCreate />} />
           <Route path="/Students" element={<Students />} />
           <Route path="/StudentView/:id" element={<StudentView />} />
-          <Route path="/updatedetails" element={<UpdateDetails />} />
+          <Route path="/updatedetails/:id" element={<UpdateDetails />} />
           <Route path="/CreateCategory" element={<CourseCategory />} />
           <Route path="/CategoryList" element={<CategoryList />} />
           <Route path="/CourseView/:id" element={<CourseView />} />

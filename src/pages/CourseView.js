@@ -29,11 +29,11 @@ function CourseView() {
     dispatch(CourseCategoryDeleteApi(catId, navigate));
   };
 
-  const handleNavigateUpdate = () => {
-    navigate({
-      pathname: `/UpdateCategory/${catId}`,
-    });
-  };
+  // const handleNavigateUpdate = () => {
+  //   navigate({
+  //     pathname: `/UpdateCategory/${catId}`,
+  //   });
+  // };
 
   return (
     <div>
@@ -76,7 +76,7 @@ function CourseView() {
                 <Button
                   type="button"
                   color="success"
-                  onClick={handleNavigateUpdate}
+                  onClick={() => navigate(`/UpdateCategory/${catId}`)}
                   style={{ padding: "3px 20px 3px 20px" }}
                 >
                   update

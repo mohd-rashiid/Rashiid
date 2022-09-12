@@ -19,7 +19,7 @@ function StudentView() {
     singleData: state.createReducer.singleData,
     loading: state.loading,
   }));
-  console.log(singleData);
+  // console.log(singleData);
 
   // console.log(singleData.data);
 
@@ -110,7 +110,7 @@ function StudentView() {
                 style={{ marginLeft: "15px", padding: "3px 20px 3px 20px" }}
                 type="button"
                 color="success"
-                onClick={() => navigate("/UpdateDetails")}
+                onClick={() => navigate(`/UpdateDetails/${params.id}`)}
               >
                 update
               </Button>

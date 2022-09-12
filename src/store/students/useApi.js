@@ -11,6 +11,7 @@ import {
   singleViewfail,
   singleViewRequest,
   singleViewSuccess,
+  updateStudentDataFail,
   updateStudentDataRequest,
   updateStudentDataSuccess,
 } from "./action";
@@ -99,21 +100,20 @@ export const deleteApi = (id, navigate) => {
 
 // update students //
 
-export const UpdateApi = (catId, navigate) => {
+export const UpdateStudentApi = (catId, navigate, input) => {
   //   console.log(input);
-  // console.log();
   return async (dispatch) => {
     dispatch(updateStudentDataRequest(catId));
 
     try {
-      const res = await AxiosApi.put(`/student/student/${catId}`);
+      const res = await AxiosApi.put(`/student/student/${catId}/`, input);
       console.log(res);
 
       dispatch(updateStudentDataSuccess(res.data));
-      navigate("/StudentView");
+      navigate(`/StudentView/${catId}`);
     } catch (error) {
       // console.log(error);
-      dispatch(deleteStudentFail(error?.response?.data));
+      dispatch(updateStudentDataFail(error?.response?.data));
     }
   };
 };
