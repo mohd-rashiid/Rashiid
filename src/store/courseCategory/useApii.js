@@ -80,7 +80,7 @@ export const CourseCategoryUpdateApi = (catId, navigate, data) => {
   return async (dispatch) => {
     dispatch(courseCategoryUpdateRequest(catId));
     try {
-      const res = await AxiosApi.put(`/course/course_category/${catId}`, data);
+      const res = await AxiosApi.put(`/course/course_category/${catId}/`, data);
       dispatch(courseCategoryUpdateSuccess(res.data));
       navigate(`/CourseView/${catId}`);
     } catch (error) {

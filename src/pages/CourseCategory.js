@@ -38,7 +38,10 @@ function CourseCategory() {
                 <h1 className="text-center pt-3 text-secondery h2">
                   Create Category List
                 </h1>
-                <form>
+                <form
+                  onSubmit={hanSubBtnCreateCourseCategory}
+                  style={{ padding: "10px" }}
+                >
                   <div className="form-group">
                     <label className="col-form-label">
                       <b>Category Name:</b>
@@ -46,7 +49,6 @@ function CourseCategory() {
                     <input
                       type="text"
                       className="form-control"
-                      requied
                       name="course_category_name"
                       onChange={(e) => Handle(e)}
                     />
@@ -64,30 +66,49 @@ function CourseCategory() {
                     />
                   </div>
 
-                  <input
+                  {/* <input
                     style={{
                       backgroundColor: "MediumSeaGreen",
                       color: "white",
                       padding: "3px 20px 3px 20px",
                     }}
-                    onClick={hanSubBtnCreateCourseCategory}
+                    // onClick={hanSubBtnCreateCourseCategory}
                     type="Submit"
                     className="btn  my-3"
                     value="Create"
-                  />
-                  <Button
+                    readOnly
+                  /> */}
+                  <div
                     style={{
-                      marginLeft: "463px",
-                      backgroundColor: " white ",
-                      color: "black",
-                      padding: "3px 20px 3px 20px",
-                    }}
-                    onClick={() => {
-                      navigate("/home");
+                      paddingTop: "15px",
+                      display: "flex",
+                      justifyContent: "space-between",
                     }}
                   >
-                    back
-                  </Button>
+                    <Button
+                      type="submit"
+                      style={{
+                        backgroundColor: "MediumSeaGreen",
+                        color: "white",
+                        padding: "3px 20px 3px 20px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      Create
+                    </Button>
+                    <Button
+                      style={{
+                        backgroundColor: " white ",
+                        color: "black",
+                        padding: "3px 20px 3px 20px",
+                      }}
+                      onClick={() => {
+                        navigate("/home");
+                      }}
+                    >
+                      back
+                    </Button>
+                  </div>
                 </form>
               </div>
             </div>

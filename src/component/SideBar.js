@@ -36,7 +36,7 @@ function SideBar() {
           </Link>
         </div>{" "}
         <Link
-          to="/updatedetails"
+          to="/updatedetails/:id"
           style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
         >
           Update Students

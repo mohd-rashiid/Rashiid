@@ -52,13 +52,16 @@ function UpdateCategory() {
       [e.target.name]: e.target.value,
     });
   };
+  // console.log(name);
   // console.log(Handle);
 
   // const HandleSubmitUpdateCourseCategory = () => {
   //   dispatch(CourseCategoryUpdateApi(CatId, navigate, storage));
   // };
 
-  const HandleSubmitUpdateCourseCategory = () => {
+  const HandleSubmitUpdateCourseCategory = (e) => {
+    e.preventDefault();
+
     dispatch(CourseCategoryUpdateApi(CatId, navigate, storage));
   };
   // console.log(storage);
@@ -89,7 +92,10 @@ function UpdateCategory() {
                 <h1 className="text-center pt-3 text-secondery h2">
                   Edit your Details
                 </h1>
-                <form>
+                <form
+                  style={{ padding: "10px" }}
+                  onSubmit={HandleSubmitUpdateCourseCategory}
+                >
                   <div className="form-group">
                     <label className="col-form-label">
                       <b>Category Name:</b>
@@ -97,7 +103,7 @@ function UpdateCategory() {
                     <input
                       type="text"
                       className="form-control"
-                      requied={"true"}
+                      requied={true}
                       onChange={(e) => Handle(e)}
                       value={storage?.course_category_name}
                       name="course_category_name"
@@ -108,7 +114,7 @@ function UpdateCategory() {
                       <b>Designation:</b>
                     </label>
                     <input
-                      requied={"true"}
+                      requied={true}
                       type="text"
                       className="form-control"
                       onChange={(e) => Handle(e)}
@@ -117,14 +123,14 @@ function UpdateCategory() {
                     />
                   </div>
 
-                  <input
+                  {/* <input
                     style={{
                       backgroundColor: "MediumSeaGreen",
                       color: "white",
                       padding: "3px 20px 3px 20px",
                       borderRadius: "5px",
                     }}
-                    type="submit"
+                    type="button"
                     className="btn  my-3"
                     value="Update"
                     // onChange={(handleSubmitUpdateCourseCategory) => {
@@ -132,21 +138,40 @@ function UpdateCategory() {
                     // }}
 
                     onClick={() => HandleSubmitUpdateCourseCategory()}
-                  />
-                  <Button
+                  /> */}
+                  <div
                     style={{
-                      marginLeft: "462px",
-                      backgroundColor: " white ",
-                      color: "black",
-                      padding: "3px 20px 3px 20px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      navigate(`/CourseView/${CatId}`);
+                      paddingTop: "15px",
+                      display: "flex",
+                      justifyContent: "space-between",
                     }}
                   >
-                    back
-                  </Button>
+                    <Button
+                      style={{
+                        // marginLeft: "462px",
+                        backgroundColor: " white ",
+                        color: "black",
+                        padding: "3px 20px 3px 20px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        navigate(`/CourseView/${CatId}`);
+                      }}
+                    >
+                      back
+                    </Button>
+                    <Button
+                      style={{
+                        backgroundColor: "MediumSeaGreen",
+                        color: "white",
+                        padding: "3px 20px 3px 20px",
+                        borderRadius: "5px",
+                      }}
+                      type="submit"
+                    >
+                      update
+                    </Button>
+                  </div>
                 </form>
               </div>
             </div>

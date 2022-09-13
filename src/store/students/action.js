@@ -81,9 +81,10 @@ export const updateStudentDataRequest = () => ({
   type: UPDATE_STUDENT_DATA_REQUEST,
   payload: "",
 });
-export const updateStudentDataSuccess = () => ({
+export const updateStudentDataSuccess = (updateStudent, catId) => ({
   type: UPDATE_STUDENT_DATA_SUCCESS,
-  payload: "",
+  payload: updateStudent,
+  catId,
 });
 
 export const updateStudentDataFail = () => ({
