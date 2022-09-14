@@ -127,6 +127,7 @@ function UpdateDetails() {
                             required={"true"}
                             value={Store?.address}
                             name="address"
+                            onChange={(e) => Handle(e)}
                           />
                         </div>
                       </Col>

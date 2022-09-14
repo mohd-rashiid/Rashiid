@@ -38,7 +38,7 @@ function CreateCourse() {
               <h1 className="text-center pt-3 text-secondery h2">
                 <b>Create Course</b>
               </h1>
-              <form>
+              <form style={{ padding: "10px" }}>
                 <div className="form-group">
                   <label className=" col=-form-label">
                     <b>Course Name:</b>
@@ -109,7 +109,7 @@ function CreateCourse() {
                     {" "}
                     Create
                   </Button> */}
-                  <input
+                  {/* <input
                     style={{
                       backgroundColor: "MediumSeaGreen",
                       color: "white",
@@ -120,23 +120,39 @@ function CreateCourse() {
                     className="btn  my-3"
                     value="Create"
                     required
-                  />
-
-                  <Button
+                  /> */}
+                  <div
                     style={{
-                      marginLeft: "439px",
-                      color: "black",
-                      backgroundColor: "white",
-                      padding: "3px 20px 3px 20px",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => {
-                      navigate("/home");
+                      paddingTop: "15px",
+                      display: "flex",
+                      justifyContent: "space-between",
                     }}
                   >
-                    {" "}
-                    back
-                  </Button>
+                    <Button
+                      style={{
+                        backgroundColor: "MediumSeaGreen",
+                        color: "white",
+                        padding: "3px 20px 3px 20px",
+                      }}
+                    >
+                      {" "}
+                      create
+                    </Button>
+                    <Button
+                      style={{
+                        color: "black",
+                        backgroundColor: "white",
+                        padding: "3px 20px 3px 20px",
+                        borderRadius: "5px",
+                      }}
+                      onClick={() => {
+                        navigate("/home");
+                      }}
+                    >
+                      {" "}
+                      back
+                    </Button>
+                  </div>
                 </div>
               </form>
             </div>

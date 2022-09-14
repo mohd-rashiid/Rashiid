@@ -35,12 +35,12 @@ function SideBar() {
             Student Create
           </Link>
         </div>{" "}
-        <Link
+        {/* <Link
           to="/updatedetails/:id"
           style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
         >
           Update Students
-        </Link>
+        </Link> */}
       </ul>
       <h2 style={{ color: "black", fontSize: "25px" }}>
         <BiStore style={{ color: "black" }} />
@@ -64,13 +64,13 @@ function SideBar() {
           Create Course
         </Link>
         <br></br>
-        <Link
+        {/* <Link
           to="/updatecourse"
           style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
         >
           {" "}
           Update Courses
-        </Link>
+        </Link> */}
       </ul>
 
       <h2 style={{ color: "black", fontSize: "25px" }}>
@@ -95,13 +95,13 @@ function SideBar() {
         </Link>
         <br></br>
 
-        <Link
+        {/* <Link
           to="/updatecategory/:id"
           style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
         >
           {" "}
           Update Category
-        </Link>
+        </Link> */}
       </ul>
     </div>
   );

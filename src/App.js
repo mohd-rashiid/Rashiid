@@ -62,6 +62,7 @@ function App() {
           <Route path="/CreateCourse" element={<CreateCourse />} />
           <Route path="/updatecategory/:id" element={<UpdateCategory />} />
           <Route path="/Courses" element={<Courses />} />
+          <Route path="/newCourseView" element={<newCourseView />} />
           <Route path="/updatecourse" element={<UpdateCourses />} />
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
