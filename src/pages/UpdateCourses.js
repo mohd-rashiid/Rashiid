@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
 import Footer from "../component/Footer";
 import Layout from "../component/layout";
+import { BsTrash } from "react-icons/bs";
 
 function UpdateCourses() {
   const navigate = useNavigate();
@@ -65,6 +66,7 @@ function UpdateCourses() {
                         }}
                         type="submit"
                       >
+                        <BsTrash />
                         Update
                       </Button>
 

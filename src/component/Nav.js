@@ -3,6 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "reactstrap";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { BsPersonCheck, IconName } from "react-icons/bs";
+import { GrUserAdmin } from "react-icons/gr";
+
+import {
+  IoLogOutOutline,
+  IoPerson,
+  IoSettings,
+  IoSettingsOutline,
+} from "react-icons/io5";
 import { useState } from "react";
 // import Dropdown from "react-bootstrap/Dropdown";
 import {
@@ -144,16 +153,19 @@ function Nav() {
               style={{ backgroundColor: "white", color: "black" }}
             >
               Admin
+              <GrUserAdmin style={{ fontSize: "20px" }} />
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem header>
                 {" "}
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
+                  <BsPersonCheck style={{ fontSize: "20px" }} />
                   View profile
                 </Link>
               </DropdownItem>
               <DropdownItem header>
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
+                  <IoSettingsOutline style={{ fontSize: "25px" }} />
                   Settings
                 </Link>
               </DropdownItem>
@@ -166,10 +178,11 @@ function Nav() {
                   to={"#!"}
                   style={{
                     textDecoration: "none",
-                    color: "black",
+                    color: "red",
                     cursor: "pointer",
                   }}
                 >
+                  <IoLogOutOutline style={{ fontSize: "30px" }} />
                   logout
                 </Link>
               </DropdownItem>

@@ -8,6 +8,7 @@ import {
   CategorySingleViewApi,
   CourseCategoryDeleteApi,
 } from "../store/courseCategory/useApii";
+import { BsTrash } from "react-icons/bs";
 
 function CourseView() {
   const dispatch = useDispatch();
@@ -87,7 +88,8 @@ function CourseView() {
                   onClick={deleteCourseCategory}
                   style={{ marginLeft: "15px", padding: "3px 20px 3px 20px" }}
                 >
-                  delete
+                  Trash
+                  <BsTrash style={{ fontSize: "20px" }} />
                 </Button>
               </div>
             </div>
