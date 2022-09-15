@@ -1,4 +1,7 @@
 import {
+  COURSE_SINGLE_VIEW_FAIL,
+  COURSE_SINGLE_VIEW_REQUEST,
+  COURSE_SINGLE_VIEW_SUCCESS,
   CREATE_COURSE_FAIL,
   CREATE_COURSE_REQUEST,
   CREATE_COURSE_SUCCESS,
@@ -34,5 +37,20 @@ export const getCourseDataSuccess = (getCourse) => ({
 });
 export const getCourseDataFail = (error) => ({
   type: GET_COURSE_DATA_FAIL,
+  payload: error,
+});
+
+// Course single view //
+
+export const CourseSingleViewRequest = () => ({
+  type: COURSE_SINGLE_VIEW_REQUEST,
+  payload: "",
+});
+export const CourseSingleViewSuccess = (courseSingleView) => ({
+  type: COURSE_SINGLE_VIEW_SUCCESS,
+  payload: courseSingleView,
+});
+export const CourseSingleViewFail = (error) => ({
+  type: COURSE_SINGLE_VIEW_FAIL,
   payload: error,
 });

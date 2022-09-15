@@ -1,4 +1,7 @@
 import {
+  COURSE_SINGLE_VIEW_FAIL,
+  COURSE_SINGLE_VIEW_REQUEST,
+  COURSE_SINGLE_VIEW_SUCCESS,
   CREATE_COURSE_FAIL,
   CREATE_COURSE_REQUEST,
   CREATE_COURSE_SUCCESS,
@@ -12,6 +15,7 @@ const initiailState = {
   error: "",
   userDetails: [],
   getCourse: {},
+  courseSingleView: {},
 };
 
 const createCourseReducer = (state = initiailState, action) => {
@@ -50,6 +54,27 @@ const createCourseReducer = (state = initiailState, action) => {
         error: "",
       };
     case GET_COURSE_DATA_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    // single view //
+
+    case COURSE_SINGLE_VIEW_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case COURSE_SINGLE_VIEW_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        courseSingleView: action.payload,
+        error: "",
+      };
+    case COURSE_SINGLE_VIEW_FAIL:
       return {
         ...state,
         loading: false,

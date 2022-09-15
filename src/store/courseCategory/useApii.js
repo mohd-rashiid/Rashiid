@@ -37,7 +37,7 @@ export const getCourseCategoryApi = () => {
     dispatch(getCourseCategoryRequest());
     try {
       const res = await AxiosApi.get(`/course/course_category/`);
-      dispatch(getCourseCategorySuccess(res));
+      dispatch(getCourseCategorySuccess(res.data));
     } catch (error) {
       dispatch(getCourseCategoryFail(error?.response?.data));
     }
@@ -74,7 +74,7 @@ export const CourseCategoryDeleteApi = (id, navigate) => {
   };
 };
 
-// course category update
+// course category update //
 
 export const CourseCategoryUpdateApi = (catId, navigate, data) => {
   return async (dispatch) => {

@@ -42,36 +42,6 @@ function SideBar() {
           Update Students
         </Link> */}
       </ul>
-      <h2 style={{ color: "black", fontSize: "25px" }}>
-        <BiStore style={{ color: "black" }} />
-        <b>Courses</b>
-      </h2>
-      <ul style={{ fontSize: "22px" }}>
-        <Link
-          to="/Courses"
-          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
-        >
-          {" "}
-          All Courses
-        </Link>
-        <br></br>
-
-        <Link
-          to="/CreateCourse"
-          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
-        >
-          {" "}
-          Create Course
-        </Link>
-        <br></br>
-        {/* <Link
-          to="/updatecourse"
-          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
-        >
-          {" "}
-          Update Courses
-        </Link> */}
-      </ul>
 
       <h2 style={{ color: "black", fontSize: "25px" }}>
         <BiCategoryAlt style={{ color: "black" }} />
@@ -101,6 +71,36 @@ function SideBar() {
         >
           {" "}
           Update Category
+        </Link> */}
+      </ul>
+      <h2 style={{ color: "black", fontSize: "25px" }}>
+        <BiStore style={{ color: "black" }} />
+        <b>Courses</b>
+      </h2>
+      <ul style={{ fontSize: "22px" }}>
+        <Link
+          to="/Courses"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          All Courses
+        </Link>
+        <br></br>
+
+        <Link
+          to="/CreateCourse"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          Create Course
+        </Link>
+        <br></br>
+        {/* <Link
+          to="/updatecourse"
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+        >
+          {" "}
+          Update Courses
         </Link> */}
       </ul>
     </div>

@@ -29,6 +29,8 @@ import CourseView from "./pages/CourseView";
 // import student_view from "./pages/StudentView";
 // import Logout from "./pages/Logout";
 import "./App.css";
+
+import View from "./pages/View";
 // import StudentView from "./pages/StudentView";
 
 function App() {
@@ -59,10 +61,11 @@ function App() {
           <Route path="/CreateCategory" element={<CourseCategory />} />
           <Route path="/CategoryList" element={<CategoryList />} />
           <Route path="/CourseView/:id" element={<CourseView />} />
+          {/* <Route path="/NewCoursesView/:id" element={<NewCoursesView />} /> */}
+          <Route path="/View/:id" element={<View />} />
           <Route path="/CreateCourse" element={<CreateCourse />} />
           <Route path="/updatecategory/:id" element={<UpdateCategory />} />
           <Route path="/Courses" element={<Courses />} />
-          <Route path="/newCourseView" element={<newCourseView />} />
           <Route path="/updatecourse" element={<UpdateCourses />} />
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<NotFound />} />

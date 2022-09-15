@@ -19,7 +19,7 @@ function CategoryList() {
     dispatch(getCourseCategoryApi());
   }, []);
 
-  const courseTable = courseCategory?.data?.results;
+  const courseTable = courseCategory?.results;
   // console.log(courseCategory?.data?.results);
 
   return (

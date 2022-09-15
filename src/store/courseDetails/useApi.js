@@ -1,5 +1,8 @@
 import { AxiosApi } from "../AxiosMethod";
 import {
+  CourseSingleViewFail,
+  CourseSingleViewRequest,
+  CourseSingleViewSuccess,
   createCourseFail,
   createCourseRequest,
   createCourseSuccess,
@@ -31,6 +34,20 @@ export const getCourseDataApi = () => {
       dispatch(getCourseDataSuccess(res.data));
     } catch (error) {
       dispatch(getCourseDataFail(error?.responce?.data));
+    }
+  };
+};
+
+// single view //
+
+export const CourseSingleViewApi = (id) => {
+  return async (dispatch) => {
+    dispatch(CourseSingleViewRequest());
+    try {
+      const res = await AxiosApi.get(`/course/course/${id}`);
+      dispatch(CourseSingleViewSuccess(res.data));
+    } catch (error) {
+      dispatch(CourseSingleViewFail(error?.responce?.data));
     }
   };
 };

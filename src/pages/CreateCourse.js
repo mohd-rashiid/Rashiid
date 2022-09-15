@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
 import Footer from "../component/Footer";
 import Layout from "../component/layout";
 import Nav from "../component/Nav";
 import SideBar from "../component/SideBar";
+import { getCourseCategoryApi } from "../store/courseCategory/useApii";
 import { createCourseApi } from "../store/courseDetails/useApi";
+import { map } from "lodash";
 
 function CreateCourse() {
   const dispatch = useDispatch();
@@ -27,6 +29,16 @@ function CreateCourse() {
     }
   };
 
+  const { courseCategory, loading } = useSelector((state) => ({
+    courseCategory: state.createCourseCategoryReducer.courseCategory,
+    loading: state.loading,
+  }));
+
+  useEffect(() => {
+    dispatch(getCourseCategoryApi());
+  }, []);
+
+  console.log(courseCategory?.results);
   // console.log(values.course_name);
 
   return (
@@ -38,7 +50,10 @@ function CreateCourse() {
               <h1 className="text-center pt-3 text-secondery h2">
                 <b>Create Course</b>
               </h1>
-              <form style={{ padding: "10px" }}>
+              <form
+                style={{ padding: "10px" }}
+                onSubmit={hanSubBtnCreateCourse}
+              >
                 <div className="form-group">
                   <label className=" col=-form-label">
                     <b>Course Name:</b>
@@ -68,15 +83,28 @@ function CreateCourse() {
                     <b>Course Category:</b>
                   </label>
 
-                  <input
+                  {/* <input
                     type="text"
                     required
-                    name="Course_category"
+                    name="course_category"
                     list="browsers"
                     className="form-control"
                     placeholder="select  a course-category"
+                    onChange={(e) => Control(e)}
                     // name="browser"
-                  />
+                  /> */}
+
+                  <select
+                    name="course_category"
+                    id=""
+                    onChange={(e) => Control(e)}
+                  >
+                    {map(courseCategory?.results, (item, key) => (
+                      <option value={item.id}>
+                        {item.course_category_name}
+                      </option>
+                    ))}
+                  </select>
                   {/* <datalist id="browsers">
                     <option value=" data" />
                     <option value="students" />
@@ -129,6 +157,7 @@ function CreateCourse() {
                     }}
                   >
                     <Button
+                      type="submit"
                       style={{
                         backgroundColor: "MediumSeaGreen",
                         color: "white",
