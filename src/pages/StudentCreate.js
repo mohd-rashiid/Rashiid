@@ -56,7 +56,7 @@ function StudentDetails() {
         <Container fluid style={{ height: "1000px" }}>
           <Row>
             <Col xl="3"></Col>
-            <Col xl="6" style={{ marginTop: "15px" }}>
+            <Col xl="6" style={{ paddingTop: "15px" }}>
               <Card>
                 <CardBody>
                   <CardTitle>
@@ -73,7 +73,7 @@ function StudentDetails() {
                             type="text"
                             name="full_name"
                             className="form-control"
-                            required
+                            required={true}
                             onChange={(e) => Handle(e)}
                           />
                         </div>
@@ -89,7 +89,7 @@ function StudentDetails() {
                             type="e-mail"
                             name="email"
                             className="form-control"
-                            required
+                            required={true}
                             onChange={(e) => Handle(e)}
                           />
                         </div>
@@ -103,7 +103,7 @@ function StudentDetails() {
                             type="number"
                             name="phone"
                             className="form-control"
-                            required
+                            required={true}
                             onChange={(e) => Handle(e)}
                           />
                         </div>
@@ -119,7 +119,7 @@ function StudentDetails() {
                             type="textarea"
                             name="address"
                             className="form-control"
-                            requied
+                            required={true}
                             onChange={(e) => Handle(e)}
                           />
                         </div>
@@ -135,7 +135,7 @@ function StudentDetails() {
                             type="date"
                             name="dob"
                             className="form-control"
-                            required
+                            required={true}
                             onChange={(e) => Handle(e)}
                           />
                         </div>
@@ -151,7 +151,7 @@ function StudentDetails() {
                             type="date"
                             name="start_date"
                             className="form-control"
-                            required
+                            required={true}
                             onChange={(e) => Handle(e)}
                           />
                         </div>
@@ -165,7 +165,7 @@ function StudentDetails() {
                             type="date"
                             name="end_date"
                             className="form-control"
-                            required
+                            required={true}
                             onChange={(e) => Handle(e)}
                           />
                         </div>
@@ -180,7 +180,7 @@ function StudentDetails() {
                           type="text"
                           name="designation"
                           className="form-control"
-                          required
+                          required={true}
                           onChange={(e) => Handle(e)}
                         />
                       </div>

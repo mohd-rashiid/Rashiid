@@ -5,9 +5,15 @@ import {
   CREATE_COURSE_FAIL,
   CREATE_COURSE_REQUEST,
   CREATE_COURSE_SUCCESS,
+  DELETE_COURSE_FAIL,
+  DELETE_COURSE_REQUEST,
+  DELETE_COURSE_SUCCESS,
   GET_COURSE_DATA_FAIL,
   GET_COURSE_DATA_REQUEST,
   GET_COURSE_DATA_SUCCESS,
+  UPDATE_COURSE_FAIL,
+  UPDATE_COURSE_REQUEST,
+  UPDATE_COURSE_SUCCESS,
 } from "./actionType";
 
 // CREATE COURSE //
@@ -52,5 +58,35 @@ export const CourseSingleViewSuccess = (courseSingleView) => ({
 });
 export const CourseSingleViewFail = (error) => ({
   type: COURSE_SINGLE_VIEW_FAIL,
+  payload: error,
+});
+
+// delete course //
+
+export const DeleteCourseRequest = () => ({
+  type: DELETE_COURSE_REQUEST,
+  payload: "",
+});
+export const DeleteCourseSuccess = (deleteCourse) => ({
+  type: DELETE_COURSE_SUCCESS,
+  payload: deleteCourse,
+});
+export const DeleteCourseFail = (error) => ({
+  type: DELETE_COURSE_FAIL,
+  payload: error,
+});
+
+// UPDATE COURSE //
+
+export const UpdateCourseRequest = () => ({
+  type: UPDATE_COURSE_REQUEST,
+  payload: "",
+});
+export const UpdateCourseSuccess = (updateCourse) => ({
+  type: UPDATE_COURSE_SUCCESS,
+  payload: updateCourse,
+});
+export const UpdateCoursefail = (error) => ({
+  type: UPDATE_COURSE_FAIL,
   payload: error,
 });

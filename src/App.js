@@ -26,11 +26,13 @@ import UpdateCategory from "./pages/UpdateCategory";
 import UpdateDetails from "./pages/UpdateDetails";
 import StudentView from "./pages/StudentView";
 import CourseView from "./pages/CourseView";
+
 // import student_view from "./pages/StudentView";
 // import Logout from "./pages/Logout";
 import "./App.css";
 
 import View from "./pages/View";
+import NewCourse from "./pages/NewCourse";
 // import StudentView from "./pages/StudentView";
 
 function App() {
@@ -63,10 +65,11 @@ function App() {
           <Route path="/CourseView/:id" element={<CourseView />} />
           {/* <Route path="/NewCoursesView/:id" element={<NewCoursesView />} /> */}
           <Route path="/View/:id" element={<View />} />
+          <Route path="/NewCourse" element={<NewCourse />} />
           <Route path="/CreateCourse" element={<CreateCourse />} />
           <Route path="/updatecategory/:id" element={<UpdateCategory />} />
           <Route path="/Courses" element={<Courses />} />
-          <Route path="/updatecourse" element={<UpdateCourses />} />
+          <Route path="/updatecourse/:id" element={<UpdateCourses />} />
           <Route path="/Login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
 

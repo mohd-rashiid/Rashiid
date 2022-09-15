@@ -59,7 +59,7 @@ export const CategorySingleViewApi = (id) => {
 };
 // console.log(CategorySingleViewApi);
 
-//delete course category
+//  delete course category //
 
 export const CourseCategoryDeleteApi = (id, navigate) => {
   return async (dispatch) => {

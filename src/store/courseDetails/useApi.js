@@ -9,6 +9,9 @@ import {
   getCourseDataFail,
   getCourseDataRequest,
   getCourseDataSuccess,
+  UpdateCoursefail,
+  UpdateCourseRequest,
+  UpdateCourseSuccess,
 } from "./action";
 
 export const createCourseApi = (values, navigate) => {
@@ -48,6 +51,35 @@ export const CourseSingleViewApi = (id) => {
       dispatch(CourseSingleViewSuccess(res.data));
     } catch (error) {
       dispatch(CourseSingleViewFail(error?.responce?.data));
+    }
+  };
+};
+
+// delete course //
+
+export const DeleteCourseApi = (id, navigate) => {
+  return async (dispatch) => {
+    dispatch(CourseSingleViewRequest(id));
+    try {
+      const res = await AxiosApi.delete(`/course/course/${id}`);
+      dispatch(CourseSingleViewSuccess(res.data));
+      navigate("/Courses");
+    } catch (error) {
+      dispatch(CourseSingleViewFail(error?.responce?.data));
+    }
+  };
+};
+//  update course //
+
+export const UpdateCourseApi = (catId, navigate, values) => {
+  return async (dispatch) => {
+    dispatch(UpdateCourseRequest(catId));
+    try {
+      const res = await AxiosApi.put(`/course/course/${catId}/`, values);
+      dispatch(UpdateCourseSuccess(res.data));
+      navigate(`/View/${catId}`);
+    } catch (error) {
+      dispatch(UpdateCoursefail(error?.responce?.data));
     }
   };
 };

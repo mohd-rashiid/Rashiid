@@ -4,7 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "reactstrap";
 import Layout from "../component/layout";
 import don from "../images/prooo.png";
-import { CourseSingleViewApi } from "../store/courseDetails/useApi";
+import {
+  CourseSingleViewApi,
+  DeleteCourseApi,
+} from "../store/courseDetails/useApi";
+import { BsTrash } from "react-icons/bs";
 
 function View() {
   const dispatch = useDispatch();
@@ -22,6 +26,10 @@ function View() {
   useEffect(() => {
     dispatch(CourseSingleViewApi(CatId));
   }, [dispatch]);
+
+  const deleteCourse = () => {
+    dispatch(DeleteCourseApi(CatId, navigate));
+  };
 
   return (
     <div>
@@ -53,19 +61,33 @@ function View() {
             <div className="col-sm-6 shadow rounded g-5">
               <div className="pt-3 text-secondary h4 justify-content-spacebetween">
                 Course Name:
-                <h1>{courseSingleView?.course_name}</h1>
+                <h2 style={{ color: "red" }}>
+                  {courseSingleView?.course_name}
+                </h2>
                 <br />
                 Duration:
-                <h1>{courseSingleView?.duration}</h1>
+                <h2 style={{ color: "red" }}>{courseSingleView?.duration}</h2>
                 <br />
                 Course Category:
-                <h1>{courseSingleView?.course_category}</h1>
+                <h2 style={{ color: "red" }}>
+                  {courseSingleView?.course_category}
+                </h2>
                 <br />
-                <Button style={{ padding: "3px 20px 3px 20px" }}>update</Button>
                 <Button
+                  type="button"
+                  color="success"
+                  onClick={() => navigate(`/updatecourse/${CatId}`)}
+                  style={{ padding: "3px 20px 3px 20px" }}
+                >
+                  update
+                </Button>
+                <Button
+                  color="danger"
+                  onClick={deleteCourse}
                   style={{ marginLeft: "15px", padding: "3px 20px 3px 20px" }}
                 >
                   Trash
+                  <BsTrash style={{ fontSize: "20px" }} />
                 </Button>
               </div>
             </div>

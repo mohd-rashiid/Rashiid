@@ -5,9 +5,15 @@ import {
   CREATE_COURSE_FAIL,
   CREATE_COURSE_REQUEST,
   CREATE_COURSE_SUCCESS,
+  DELETE_COURSE_FAIL,
+  DELETE_COURSE_REQUEST,
+  DELETE_COURSE_SUCCESS,
   GET_COURSE_DATA_FAIL,
   GET_COURSE_DATA_REQUEST,
   GET_COURSE_DATA_SUCCESS,
+  UPDATE_COURSE_FAIL,
+  UPDATE_COURSE_REQUEST,
+  UPDATE_COURSE_SUCCESS,
 } from "./actionType";
 
 const initiailState = {
@@ -16,6 +22,8 @@ const initiailState = {
   userDetails: [],
   getCourse: {},
   courseSingleView: {},
+  deleteCourse: {},
+  updateCourse: {},
 };
 
 const createCourseReducer = (state = initiailState, action) => {
@@ -80,6 +88,49 @@ const createCourseReducer = (state = initiailState, action) => {
         loading: false,
         error: action.payload,
       };
+
+    // DELETE COURSE //
+
+    case DELETE_COURSE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case DELETE_COURSE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        deleteCourse: action.payload,
+        error: "",
+      };
+
+    case DELETE_COURSE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    // UPDATE COURSE //
+    case UPDATE_COURSE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case UPDATE_COURSE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        updateCourse: action.payload,
+        error: "",
+      };
+    case UPDATE_COURSE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
     default:
       return state;
   }

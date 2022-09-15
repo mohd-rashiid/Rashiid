@@ -30,7 +30,7 @@ function Courses() {
             <tr>
               <th>#</th>
               <th>course-name</th>
-              <th>course-category</th>
+              <th>Duration</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -39,7 +39,7 @@ function Courses() {
               <tr key={key}>
                 <td scope="row">{key + 1}</td>
                 <td>{item?.course_name}</td>
-                <td>{item?.course_category}</td>
+                <td>{item?.duration}</td>
                 <td>
                   <Link
                     style={{ textDecoration: "none", color: "black" }}

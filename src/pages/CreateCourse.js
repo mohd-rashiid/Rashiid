@@ -38,7 +38,7 @@ function CreateCourse() {
     dispatch(getCourseCategoryApi());
   }, []);
 
-  console.log(courseCategory?.results);
+  console.log(courseCategory);
   // console.log(values.course_name);
 
   return (
