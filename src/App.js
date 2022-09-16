@@ -65,7 +65,7 @@ function App() {
           <Route path="/CourseView/:id" element={<CourseView />} />
           {/* <Route path="/NewCoursesView/:id" element={<NewCoursesView />} /> */}
           <Route path="/View/:id" element={<View />} />
-          <Route path="/NewCourse" element={<NewCourse />} />
+          <Route path="/NewCourse/:id" element={<NewCourse />} />
           <Route path="/CreateCourse" element={<CreateCourse />} />
           <Route path="/updatecategory/:id" element={<UpdateCategory />} />
           <Route path="/Courses" element={<Courses />} />

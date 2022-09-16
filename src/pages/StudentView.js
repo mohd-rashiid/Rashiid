@@ -4,7 +4,11 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Button, Card } from "reactstrap";
 import Layout from "../component/layout";
 import love from "../images/prooo.png";
-import { deleteApi, singleViewApi } from "../store/students/useApi";
+import {
+  CreateStudentCourseApi,
+  deleteApi,
+  singleViewApi,
+} from "../store/students/useApi";
 import { GrAdd, IconName } from "react-icons/gr";
 
 function StudentView() {
@@ -16,8 +20,9 @@ function StudentView() {
   // console.log(params);
   const navigate = useNavigate();
 
-  const { singleData, loading } = useSelector((state) => ({
+  const { singleData, loading, studentCourse } = useSelector((state) => ({
     singleData: state.createReducer.singleData,
+    studentCourse: state.createReducer.studentCourse,
     loading: state.loading,
   }));
   // console.log(singleData);
@@ -31,6 +36,10 @@ function StudentView() {
   useEffect(() => {
     dispatch(singleViewApi(params.id));
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(CreateStudentCourseApi());
+  // }, []);
 
   // console.log(deleteApi());
 
@@ -142,7 +151,7 @@ function StudentView() {
                     }}
                   >
                     <h2>Student Course</h2>
-                    <Button onClick={() => navigate("/NewCourse")}>
+                    <Button onClick={() => navigate(`/NewCourse/${params.id}`)}>
                       + Create
                     </Button>
                   </div>

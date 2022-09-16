@@ -1,6 +1,9 @@
 import {
   createFail,
   createRequest,
+  CreateStudentCourseFail,
+  CreateStudentCourseRequest,
+  CreateStudentCourseSuccess,
   createSuccess,
   deleteStudentFail,
   deleteStudentRequest,
@@ -48,7 +51,7 @@ export const getDataApi = () => {
 
     try {
       const res = await AxiosApi.get(`/student/student/`);
-      console.log(res);
+      // console.log(res);
       dispatch(getStudentdatasuccess(res));
       // navigate("/students");
     } catch (error) {
@@ -114,6 +117,29 @@ export const UpdateStudentApi = (catId, navigate, input) => {
     } catch (error) {
       // console.log(error);
       dispatch(updateStudentDataFail(error?.response?.data));
+    }
+  };
+};
+
+// create student course //
+
+export const CreateStudentCourseApi = (catId, navigate, stdCourseData) => {
+  //   console.log(input);
+  return async (dispatch) => {
+    dispatch(CreateStudentCourseRequest(stdCourseData));
+
+    try {
+      const res = await AxiosApi.post(
+        `/student/student_course/${catId}`,
+        stdCourseData
+      );
+      console.log(res);
+
+      dispatch(CreateStudentCourseSuccess(res.data));
+      navigate(`/StudentsView/${catId}`);
+    } catch (error) {
+      // console.log(error);
+      dispatch(CreateStudentCourseFail(error?.response?.data));
     }
   };
 };

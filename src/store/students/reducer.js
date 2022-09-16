@@ -2,6 +2,9 @@ import { act } from "react-dom/test-utils";
 import {
   CREATE_FAIL,
   CREATE_REQUEST,
+  CREATE_STUDENT_COURSE_FAIL,
+  CREATE_STUDENT_COURSE_REQUEST,
+  CREATE_STUDENT_COURSE_SUCCESS,
   CREATE_SUCCESS,
   DELETE_STUDENT_FAIL,
   DELETE_STUDENT_REQUEST,
@@ -25,6 +28,7 @@ const initiailState = {
   singleData: {},
   deleteStudent: {},
   updateStudent: {},
+  studentCourse: {},
 };
 
 const createReducer = (state = initiailState, action) => {
@@ -129,6 +133,28 @@ const createReducer = (state = initiailState, action) => {
       };
 
     case UPDATE_STUDENT_DATA_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    //   student course //
+
+    case CREATE_STUDENT_COURSE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case CREATE_STUDENT_COURSE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        studentCourse: action.payload,
+        error: "",
+      };
+
+    case CREATE_STUDENT_COURSE_FAIL:
       return {
         ...state,
         loading: false,

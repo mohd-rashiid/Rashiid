@@ -38,7 +38,7 @@ function CreateCourse() {
     dispatch(getCourseCategoryApi());
   }, []);
 
-  console.log(courseCategory);
+  console.log(courseCategory?.results);
   // console.log(values.course_name);
 
   return (
@@ -79,7 +79,7 @@ function CreateCourse() {
                   />
                 </div>
                 <div className="form-group">
-                  <label className=" col=-form-label">
+                  <label className=" col-form-label">
                     <b>Course Category:</b>
                   </label>
 
@@ -93,18 +93,21 @@ function CreateCourse() {
                     onChange={(e) => Control(e)}
                     // name="browser"
                   /> */}
+                  <div className="form-group">
+                    <select
+                      className="col-form-label"
+                      name="course_category"
+                      id=""
+                      onChange={(e) => Control(e)}
+                    >
+                      {map(courseCategory?.results, (item, key) => (
+                        <option value={item.id}>
+                          {item.course_category_name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                  <select
-                    name="course_category"
-                    id=""
-                    onChange={(e) => Control(e)}
-                  >
-                    {map(courseCategory?.results, (item, key) => (
-                      <option value={item.id}>
-                        {item.course_category_name}
-                      </option>
-                    ))}
-                  </select>
                   {/* <datalist id="browsers">
                     <option value=" data" />
                     <option value="students" />

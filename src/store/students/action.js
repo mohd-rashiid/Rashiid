@@ -15,6 +15,9 @@ import {
   UPDATE_STUDENT_DATA_REQUEST,
   UPDATE_STUDENT_DATA_SUCCESS,
   UPDATE_STUDENT_DATA_FAIL,
+  CREATE_STUDENT_COURSE_REQUEST,
+  CREATE_STUDENT_COURSE_SUCCESS,
+  CREATE_STUDENT_COURSE_FAIL,
 } from "./actiontype";
 
 export const createRequest = (input) => ({
@@ -90,4 +93,20 @@ export const updateStudentDataSuccess = (updateStudent, catId) => ({
 export const updateStudentDataFail = () => ({
   type: UPDATE_STUDENT_DATA_FAIL,
   payload: "",
+});
+
+// create student course //
+
+export const CreateStudentCourseRequest = (stdCourseData) => ({
+  type: CREATE_STUDENT_COURSE_REQUEST,
+  payload: stdCourseData,
+});
+export const CreateStudentCourseSuccess = (studentCourse) => ({
+  type: CREATE_STUDENT_COURSE_SUCCESS,
+  payload: studentCourse,
+});
+
+export const CreateStudentCourseFail = (error) => ({
+  type: CREATE_STUDENT_COURSE_FAIL,
+  payload: error,
 });
