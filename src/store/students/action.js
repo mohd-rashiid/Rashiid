@@ -18,6 +18,9 @@ import {
   CREATE_STUDENT_COURSE_REQUEST,
   CREATE_STUDENT_COURSE_SUCCESS,
   CREATE_STUDENT_COURSE_FAIL,
+  GET_STUDENT_COURSE_REQUEST,
+  GET_STUDENT_COURSE_SUCCESS,
+  GET_STUDENT_COURSE_FAIL,
 } from "./actiontype";
 
 export const createRequest = (input) => ({
@@ -108,5 +111,20 @@ export const CreateStudentCourseSuccess = (studentCourse) => ({
 
 export const CreateStudentCourseFail = (error) => ({
   type: CREATE_STUDENT_COURSE_FAIL,
+  payload: error,
+});
+
+//  get student course //
+
+export const GetStudentCourseDataRequest = () => ({
+  type: GET_STUDENT_COURSE_REQUEST,
+  payload: "",
+});
+export const GetStudnetCourseDataSuccess = (studentCourseData) => ({
+  type: GET_STUDENT_COURSE_SUCCESS,
+  payload: studentCourseData,
+});
+export const GetStudentCourseDataFail = (error) => ({
+  type: GET_STUDENT_COURSE_FAIL,
   payload: error,
 });

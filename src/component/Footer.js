@@ -7,7 +7,7 @@ function Footer() {
         style={{
           borderTop: "1px solid black ",
           margin: " 30px 100px 0px 100px",
-          height: "1000px",
+          // height: "1000px",
         }}
       >
         <footer

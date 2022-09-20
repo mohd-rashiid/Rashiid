@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { Button, Card } from "reactstrap";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Button, Card, Col, Row, Table } from "reactstrap";
 import Layout from "../component/layout";
+import { map, range } from "lodash";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
+
 import love from "../images/prooo.png";
 import {
   CreateStudentCourseApi,
   deleteApi,
+  getStudentCourseApi,
   singleViewApi,
 } from "../store/students/useApi";
 import { GrAdd, IconName } from "react-icons/gr";
+import { IoEye } from "react-icons/io5";
 
 function StudentView() {
   const dispatch = useDispatch();
@@ -20,14 +25,18 @@ function StudentView() {
   // console.log(params);
   const navigate = useNavigate();
 
-  const { singleData, loading, studentCourse } = useSelector((state) => ({
-    singleData: state.createReducer.singleData,
-    studentCourse: state.createReducer.studentCourse,
-    loading: state.loading,
-  }));
-  // console.log(singleData);
+  const [pages, setPages] = useState(1);
 
-  // console.log(singleData.data);
+  const { singleData, loading, studentCourse, studentCourseData, count } =
+    useSelector((state) => ({
+      singleData: state.createReducer.singleData,
+      studentCourse: state.createReducer.studentCourse,
+      studentCourseData: state.createReducer.studentCourseData,
+      count: state.createReducer.studentCourseDataCount,
+
+      loading: state.loading,
+    }));
+  // console.log(singleData);
 
   const deleteStudent = () => {
     dispatch(deleteApi(params.id, navigate));
@@ -37,6 +46,12 @@ function StudentView() {
     dispatch(singleViewApi(params.id));
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getStudentCourseApi(pages));
+  }, [dispatch, pages]);
+  console.log(studentCourseData);
+
+  // console.log(studentCourseData?.data?.[2]);
   // useEffect(() => {
   //   dispatch(CreateStudentCourseApi());
   // }, []);
@@ -47,10 +62,14 @@ function StudentView() {
 
   // const dataTable = singleData?.data?.results;
 
+  const totalPage = Math.round(count / 2);
+
+  const pageToArray = range(1, totalPage + 1);
+
   return (
     <div>
-      <Layout>
-        <section>
+      <section>
+        <Layout>
           <h1
             style={{
               // display: "flex",
@@ -134,11 +153,97 @@ function StudentView() {
                   </Button>
                 </div>
               </div>
+              <div style={{ padding: "25px 35px 0px 35px" }} className="row">
+                <div className="col-sm-12" shadow-rounded>
+                  <div className="card">
+                    <div className="card-body">
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "flex-end",
+                        }}
+                      >
+                        <h2>Student Course</h2>
+                        <div>
+                          <Button
+                            color="success"
+                            onClick={() => navigate(`/NewCourse/${params.id}`)}
+                          >
+                            + Create New Course
+                          </Button>
+                        </div>
+                      </div>
+                      <Table>
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Student </th>
+                            <th>Course</th>
+                            <th>Progress</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {map(studentCourseData, (item, key) => (
+                            <tr key={key}>
+                              <td scope="row">{key + 1}</td>
+                              <td>{item?.student}</td>
+                              <td>{item?.course}</td>
+                              <td>{item?.progress}</td>
+                              <td>
+                                <Link
+                                  style={{
+                                    color: "black",
+                                    textDecoration: "none",
+                                  }}
+                                  to={``}
+                                >
+                                  <IoEye />
+                                </Link>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </Table>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "end",
+                          justifyContent: "end",
+                          width: "100%",
+                        }}
+                      >
+                        <Row>
+                          <Col>
+                            <MdArrowBack onClick={() => setPages(pages - 1)} />
+                          </Col>
+                          {map(pageToArray, (page) => (
+                            <Col
+                              style={{ cursor: "pointer" }}
+                              className={pages === page && "active"}
+                              onClick={() => setPages(page)}
+                            >
+                              {page}
+                            </Col>
+                          ))}
+
+                          <Col>
+                            <MdArrowForward
+                              onClick={() => setPages(pages + 1)}
+                            />
+                          </Col>
+                        </Row>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             {/* <button onClick={navigate("/students")}>back</button> */}
           </div>
-        </section>
-        <section>
+
+          {/* <section>
           <div style={{ padding: "25px 35px 0px 35px" }} className="row">
             <div className="col-sm-12" shadow-rounded>
               <div className="card">
@@ -155,12 +260,25 @@ function StudentView() {
                       + Create
                     </Button>
                   </div>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
+                  <h4>yufyfyufuf</h4>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </Layout>
+        </section> */}
+        </Layout>
+      </section>
     </div>
   );
 }

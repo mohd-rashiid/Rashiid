@@ -12,7 +12,7 @@ function SideBar() {
         position: "revert-layer",
         background: "",
         width: "300px",
-        height: "100vh",
+        height: "100%",
         padding: "20px ",
         backgroundColor: "#c7e0f4",
       }}

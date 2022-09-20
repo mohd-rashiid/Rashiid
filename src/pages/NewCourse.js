@@ -53,7 +53,7 @@ function NewCourse() {
   useEffect(() => {
     dispatch(getCourseDataApi());
   }, [dispatch]);
-  console.log(stdCourseData);
+  // console.log(stdCourseData);
   // console.log(stdCourseData);
   // const Api = () => {
   //   dispatch(getCourseDataApi());
@@ -159,10 +159,12 @@ function NewCourse() {
                             justifyContent: "space-between",
                           }}
                         >
-                          <Button>
-                            <MdArrowBack />
-                            back
-                          </Button>
+                          <Link to={`/StudentVIew/${catId}`}>
+                            <Button type="button">
+                              <MdArrowBack />
+                              back
+                            </Button>
+                          </Link>
 
                           <Button type="submit" color="success">
                             Create

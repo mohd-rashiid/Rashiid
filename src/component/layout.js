@@ -12,7 +12,7 @@ function Layout({ children }) {
       <div style={{ display: location.pathname === "/" && "none" }}>
         <Nav />
       </div>
-      <div style={{ display: "flex", height: "90vh" }}>
+      <div style={{ display: "flex", minHeight: "100vh" }}>
         <div style={{ display: location.pathname === "/" && "none" }}>
           <SideBar />
         </div>

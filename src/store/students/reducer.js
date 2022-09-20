@@ -9,6 +9,9 @@ import {
   DELETE_STUDENT_FAIL,
   DELETE_STUDENT_REQUEST,
   DELETE_STUDENT_SUCCESS,
+  GET_STUDENT_COURSE_FAIL,
+  GET_STUDENT_COURSE_REQUEST,
+  GET_STUDENT_COURSE_SUCCESS,
   GET_STUDENT_DATA_FAIL,
   GET_STUDENT_DATA_REQUEST,
   GET_STUDENT_DATA_SUCCESS,
@@ -29,6 +32,7 @@ const initiailState = {
   deleteStudent: {},
   updateStudent: {},
   studentCourse: {},
+  studentCourseData: [],
 };
 
 const createReducer = (state = initiailState, action) => {
@@ -155,6 +159,29 @@ const createReducer = (state = initiailState, action) => {
       };
 
     case CREATE_STUDENT_COURSE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    //  GET STUDENT COURSE DATA //
+
+    case GET_STUDENT_COURSE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_STUDENT_COURSE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        studentCourseData: action.payload.results,
+        studentCourseDataCount: action.payload.count,
+        error: "",
+      };
+
+    case GET_STUDENT_COURSE_FAIL:
       return {
         ...state,
         loading: false,

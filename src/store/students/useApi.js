@@ -8,9 +8,12 @@ import {
   deleteStudentFail,
   deleteStudentRequest,
   deleteStudentSuccess,
+  GetStudentCourseDataFail,
+  GetStudentCourseDataRequest,
   getStudentdataFail,
   getStudentdataRequest,
   getStudentdatasuccess,
+  GetStudnetCourseDataSuccess,
   singleViewfail,
   singleViewRequest,
   singleViewSuccess,
@@ -130,16 +133,38 @@ export const CreateStudentCourseApi = (catId, navigate, stdCourseData) => {
 
     try {
       const res = await AxiosApi.post(
-        `/student/student_course/${catId}`,
+        `/student/student_course/`,
         stdCourseData
       );
       console.log(res);
 
       dispatch(CreateStudentCourseSuccess(res.data));
-      navigate(`/StudentsView/${catId}`);
+      navigate(`/StudentView/${catId}`);
     } catch (error) {
       // console.log(error);
       dispatch(CreateStudentCourseFail(error?.response?.data));
+    }
+  };
+};
+
+// get student course data //
+
+export const getStudentCourseApi = (page) => {
+  //   console.log(input);
+  return async (dispatch) => {
+    dispatch(GetStudentCourseDataRequest());
+
+    try {
+      const res = await AxiosApi.get(
+        `/student/student_course/?page=${page ?? 1}`
+      );
+      // console.log(res);
+
+      dispatch(GetStudnetCourseDataSuccess(res.data));
+      // navigate(`/StudentView/${res.student}`);
+    } catch (error) {
+      // console.log(error);
+      dispatch(GetStudentCourseDataFail(error?.response?.data));
     }
   };
 };
