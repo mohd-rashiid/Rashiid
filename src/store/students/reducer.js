@@ -77,6 +77,8 @@ const createReducer = (state = initiailState, action) => {
         ...state,
         loading: false,
         studentData: action.payload,
+        studentDataCount: action.payload.data.count,
+        // studentDataCount: action.payload.data.results,
         error: "",
       };
     case GET_STUDENT_DATA_FAIL:

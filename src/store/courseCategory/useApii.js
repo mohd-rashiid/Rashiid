@@ -32,11 +32,13 @@ export const createCourseCategoryApi = (data, navigate) => {
 };
 //get-course category
 
-export const getCourseCategoryApi = () => {
+export const getCourseCategoryApi = (page) => {
   return async (dispatch) => {
     dispatch(getCourseCategoryRequest());
     try {
-      const res = await AxiosApi.get(`/course/course_category/`);
+      const res = await AxiosApi.get(
+        `/course/course_category/?page=${page ?? 1}`
+      );
       dispatch(getCourseCategorySuccess(res.data));
     } catch (error) {
       dispatch(getCourseCategoryFail(error?.response?.data));

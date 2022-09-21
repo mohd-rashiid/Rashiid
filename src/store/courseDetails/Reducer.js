@@ -59,6 +59,7 @@ const createCourseReducer = (state = initiailState, action) => {
         ...state,
         loading: false,
         getCourse: action.payload,
+        getCourseCount: action.payload.count,
         error: "",
       };
     case GET_COURSE_DATA_FAIL:

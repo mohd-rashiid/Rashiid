@@ -29,11 +29,11 @@ export const createCourseApi = (values, navigate) => {
 
 //  GET COURSE DATA //
 
-export const getCourseDataApi = () => {
+export const getCourseDataApi = (page) => {
   return async (dispatch) => {
     dispatch(getCourseDataRequest());
     try {
-      const res = await AxiosApi.get(`/course/course/`);
+      const res = await AxiosApi.get(`/course/course/?page=${page ?? 1}`);
       dispatch(getCourseDataSuccess(res.data));
     } catch (error) {
       dispatch(getCourseDataFail(error?.responce?.data));

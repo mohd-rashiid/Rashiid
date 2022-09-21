@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
+
 import {
   Button,
   Col,
+  Collapse,
   Container,
   Input,
   List,
@@ -18,17 +21,22 @@ import { IconName, IoEye, IoEyeOutline } from "react-icons/io5";
 
 // import StudentView from "..pages/StudentView";
 
-import { map } from "lodash";
-import { Link } from "react-router-dom";
+import { map, range } from "lodash";
+import { Link, useParams } from "react-router-dom";
 
 function Students() {
   const dispatch = useDispatch();
+  // const params = useParams();
+  const [pages, setPages] = useState(1);
 
-  const { studentData, loading } = useSelector((state) => ({
+  const { studentData, loading, count } = useSelector((state) => ({
     studentData: state.createReducer.studentData,
+    count: state.createReducer.studentDataCount,
     loading: state.loading,
   }));
+  const totalPage = Math.round(count / 10);
 
+  const pageToArray = range(1, totalPage + 1);
   // console.log(studentData?.data?.results);
 
   // const AllData = () => {
@@ -36,8 +44,8 @@ function Students() {
   // };
 
   useEffect(() => {
-    dispatch(getDataApi());
-  }, []);
+    dispatch(getDataApi(pages));
+  }, [dispatch, pages]);
 
   // const Data = map(studentData?.data?.results, (item, key) => ({
   //   ...item,
@@ -46,6 +54,8 @@ function Students() {
   // }));
 
   const tableData = studentData?.data?.results;
+
+  console.log(pages);
 
   return (
     <div>
@@ -96,6 +106,36 @@ function Students() {
             ))}
           </tbody>
         </Table>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "end",
+            justifyContent: "end",
+            width: "100%",
+          }}
+        >
+          <Row>
+            <Col>
+              <MdArrowBack onClick={() => setPages(pages - 1)} />
+            </Col>
+            {map(pageToArray, (page) => (
+              <Col
+                style={{ cursor: "pointer" }}
+                className={pages === page && "active"}
+                onClick={() => setPages(page)}
+              >
+                {page}
+              </Col>
+            ))}
+            <Col>
+              <MdArrowForward
+                onClick={() => {
+                  setPages(pages + 1);
+                }}
+              />
+            </Col>
+          </Row>
+        </div>
       </Layout>
     </div>
   );

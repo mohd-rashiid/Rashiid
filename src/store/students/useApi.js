@@ -52,14 +52,15 @@ export const createApi = (input, navigate) => {
 
 // get studemts data //
 
-export const getDataApi = () => {
+export const getDataApi = (page) => {
   //   console.log(input);
   // console.log();
+  console.log(page);
   return async (dispatch) => {
     dispatch(getStudentdataRequest());
 
     try {
-      const res = await AxiosApi.get(`/student/student/`);
+      const res = await AxiosApi.get(`/student/student/?page=${page ?? 1}`);
       // console.log(res);
       dispatch(getStudentdatasuccess(res));
       // navigate("/students");

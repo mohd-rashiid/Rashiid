@@ -59,6 +59,7 @@ const createCourseCategoryReducer = (state = initiailState, action) => {
         ...state,
         loading: false,
         courseCategory: action.payload,
+        courseCategoryCount: action.payload.count,
         error: "",
       };
     case GET_CATEGORY_FAIL:

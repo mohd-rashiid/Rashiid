@@ -42,7 +42,7 @@ function StudentsCourses() {
   //   }, [dispatch]);
   console.log(catId);
   const deleteApi = (id) => {
-    console.log("sdfsdf");
+    // console.log("sdfsdf");
     dispatch(DeleteStudentsCourseApi(id, navigate));
   };
   return (
