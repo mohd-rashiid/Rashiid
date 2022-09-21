@@ -33,6 +33,8 @@ import "./App.css";
 
 import View from "./pages/View";
 import NewCourse from "./pages/NewCourse";
+import StudentsCourses from "./pages/StudentsCourses";
+import StudentCourseSingleView from "./store/StudentCourseSingleView";
 // import StudentView from "./pages/StudentView";
 
 function App() {
@@ -65,7 +67,12 @@ function App() {
           <Route path="/CourseView/:id" element={<CourseView />} />
           {/* <Route path="/NewCoursesView/:id" element={<NewCoursesView />} /> */}
           <Route path="/View/:id" element={<View />} />
-          <Route path="/NewCourse/:id" element={<NewCourse />} />
+          <Route
+            path="/studentcoursesingleview/:id"
+            element={<StudentCourseSingleView />}
+          />
+          <Route path="/NewCourse" element={<NewCourse />} />
+          <Route path="/studentscourses" element={<StudentsCourses />} />
           <Route path="/CreateCourse" element={<CreateCourse />} />
           <Route path="/updatecategory/:id" element={<UpdateCategory />} />
           <Route path="/Courses" element={<Courses />} />

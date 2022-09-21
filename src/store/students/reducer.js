@@ -18,6 +18,12 @@ import {
   SINGLE_VIEW_FAIL,
   SINGLE_VIEW_REQUEST,
   SINGLE_VIEW_SUCCESS,
+  STUDENTS_COURSES_DELETE_FAIL,
+  STUDENTS_COURSES_DELETE_REQUEST,
+  STUDENTS_COURSES_DELETE_SUCCESS,
+  STUDENTS_COURSES_SINGLE_VIEW_FAIL,
+  STUDENTS_COURSES_SINGLE_VIEW_REQUEST,
+  STUDENTS_COURSES_SINGLE_VIEW_SUCCESS,
   UPDATE_STUDENT_DATA_FAIL,
   UPDATE_STUDENT_DATA_REQUEST,
   UPDATE_STUDENT_DATA_SUCCESS,
@@ -33,6 +39,8 @@ const initiailState = {
   updateStudent: {},
   studentCourse: {},
   studentCourseData: [],
+  studentCourseSingleVIew: {},
+  studentCourseDelete: {},
 };
 
 const createReducer = (state = initiailState, action) => {
@@ -182,6 +190,53 @@ const createReducer = (state = initiailState, action) => {
       };
 
     case GET_STUDENT_COURSE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    // Students courses single view //
+
+    case STUDENTS_COURSES_SINGLE_VIEW_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case STUDENTS_COURSES_SINGLE_VIEW_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        studentCourseSingleVIew: action.payload,
+        error: "",
+      };
+
+    case STUDENTS_COURSES_SINGLE_VIEW_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    // Students Courses delete //
+
+    case STUDENTS_COURSES_DELETE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case STUDENTS_COURSES_DELETE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        studentCourseData: state.studentCourseData?.filter(
+          (i) => i.id !== action.payload
+        ),
+        error: "",
+      };
+    case STUDENTS_COURSES_DELETE_FAIL:
       return {
         ...state,
         loading: false,

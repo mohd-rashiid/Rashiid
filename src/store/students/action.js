@@ -21,6 +21,12 @@ import {
   GET_STUDENT_COURSE_REQUEST,
   GET_STUDENT_COURSE_SUCCESS,
   GET_STUDENT_COURSE_FAIL,
+  STUDENTS_COURSES_SINGLE_VIEW_REQUEST,
+  STUDENTS_COURSES_SINGLE_VIEW_SUCCESS,
+  STUDENTS_COURSES_SINGLE_VIEW_FAIL,
+  STUDENTS_COURSES_DELETE_REQUEST,
+  STUDENTS_COURSES_DELETE_SUCCESS,
+  STUDENTS_COURSES_DELETE_FAIL,
 } from "./actiontype";
 
 export const createRequest = (input) => ({
@@ -126,5 +132,38 @@ export const GetStudnetCourseDataSuccess = (studentCourseData) => ({
 });
 export const GetStudentCourseDataFail = (error) => ({
   type: GET_STUDENT_COURSE_FAIL,
+  payload: error,
+});
+//  STUDENTS COURSES SINGLE VIEW //
+
+export const StudentsCoursesSingleViewRequest = () => ({
+  type: STUDENTS_COURSES_SINGLE_VIEW_REQUEST,
+  payload: "",
+});
+
+export const StudentsCoursesSingleViewSuccess = (studentCourseSingleVIew) => ({
+  type: STUDENTS_COURSES_SINGLE_VIEW_SUCCESS,
+  payload: studentCourseSingleVIew,
+});
+
+export const StudentsCoursesSingleViewFail = (error) => ({
+  type: STUDENTS_COURSES_SINGLE_VIEW_FAIL,
+  payload: error,
+});
+
+// DELETE STUDENTS COURSE //
+
+export const StudentsCoursesDeleteRequest = () => ({
+  type: STUDENTS_COURSES_DELETE_REQUEST,
+  payload: "",
+});
+
+export const StudentsCoursesDeleteSccess = (id) => ({
+  type: STUDENTS_COURSES_DELETE_SUCCESS,
+  payload: id,
+});
+
+export const StudentsCoursesDeleteFail = (error) => ({
+  type: STUDENTS_COURSES_DELETE_FAIL,
   payload: error,
 });

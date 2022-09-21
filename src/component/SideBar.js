@@ -35,6 +35,13 @@ function SideBar() {
             Student Create
           </Link>
         </div>{" "}
+        <Link
+          style={{ textDecoration: "none", fontSize: "20px", color: "black" }}
+          to="/StudentsCourses"
+        >
+          {" "}
+          Students Courses
+        </Link>
         {/* <Link
           to="/updatedetails/:id"
           style={{ textDecoration: "none", fontSize: "20px", color: "black" }}

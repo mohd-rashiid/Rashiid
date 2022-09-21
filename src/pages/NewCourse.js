@@ -98,6 +98,9 @@ function NewCourse() {
                               id=""
                               onChange={(e) => Handle(e)}
                             >
+                              <option className="text-muted">
+                                select a student...
+                              </option>
                               {map(student?.results, (item, key) => (
                                 <option value={item.id}>
                                   {item.full_name}
@@ -131,6 +134,7 @@ function NewCourse() {
                               id=""
                               onChange={(e) => Handle(e)}
                             >
+                              <option>select your course...</option>
                               {map(course?.results, (item, key) => (
                                 <option value={item.id}>
                                   {item.course_name}
@@ -159,7 +163,7 @@ function NewCourse() {
                             justifyContent: "space-between",
                           }}
                         >
-                          <Link to={`/StudentVIew/${catId}`}>
+                          <Link to={`/studentscourses/`}>
                             <Button type="button">
                               <MdArrowBack />
                               back

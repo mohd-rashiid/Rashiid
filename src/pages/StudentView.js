@@ -25,8 +25,6 @@ function StudentView() {
   // console.log(params);
   const navigate = useNavigate();
 
-  const [pages, setPages] = useState(1);
-
   const { singleData, loading, studentCourse, studentCourseData, count } =
     useSelector((state) => ({
       singleData: state.createReducer.singleData,
@@ -46,9 +44,6 @@ function StudentView() {
     dispatch(singleViewApi(params.id));
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getStudentCourseApi(pages));
-  }, [dispatch, pages]);
   console.log(studentCourseData);
 
   // console.log(studentCourseData?.data?.[2]);
@@ -61,10 +56,6 @@ function StudentView() {
   // dispatch(deleteApi());
 
   // const dataTable = singleData?.data?.results;
-
-  const totalPage = Math.round(count / 2);
-
-  const pageToArray = range(1, totalPage + 1);
 
   return (
     <div>
@@ -153,97 +144,8 @@ function StudentView() {
                   </Button>
                 </div>
               </div>
-              <div style={{ padding: "25px 35px 0px 35px" }} className="row">
-                <div className="col-sm-12" shadow-rounded>
-                  <div className="card">
-                    <div className="card-body">
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "flex-end",
-                        }}
-                      >
-                        <h2>Student Course</h2>
-                        <div>
-                          <Button
-                            color="success"
-                            onClick={() => navigate(`/NewCourse/${params.id}`)}
-                          >
-                            + Create New Course
-                          </Button>
-                        </div>
-                      </div>
-                      <Table>
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Student </th>
-                            <th>Course</th>
-                            <th>Progress</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {map(studentCourseData, (item, key) => (
-                            <tr key={key}>
-                              <td scope="row">{key + 1}</td>
-                              <td>{item?.student}</td>
-                              <td>{item?.course}</td>
-                              <td>{item?.progress}</td>
-                              <td>
-                                <Link
-                                  style={{
-                                    color: "black",
-                                    textDecoration: "none",
-                                  }}
-                                  to={``}
-                                >
-                                  <IoEye />
-                                </Link>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </Table>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "end",
-                          justifyContent: "end",
-                          width: "100%",
-                        }}
-                      >
-                        <Row>
-                          <Col>
-                            <MdArrowBack onClick={() => setPages(pages - 1)} />
-                          </Col>
-                          {map(pageToArray, (page) => (
-                            <Col
-                              style={{ cursor: "pointer" }}
-                              className={pages === page && "active"}
-                              onClick={() => setPages(page)}
-                            >
-                              {page}
-                            </Col>
-                          ))}
 
-                          <Col>
-                            <MdArrowForward
-                              onClick={() => setPages(pages + 1)}
-                            />
-                          </Col>
-                        </Row>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <button onClick={navigate("/students")}>back</button> */}
-          </div>
-
-          {/* <section>
+              {/* <section>
           <div style={{ padding: "25px 35px 0px 35px" }} className="row">
             <div className="col-sm-12" shadow-rounded>
               <div className="card">
@@ -277,6 +179,8 @@ function StudentView() {
             </div>
           </div>
         </section> */}
+            </div>
+          </div>
         </Layout>
       </section>
     </div>

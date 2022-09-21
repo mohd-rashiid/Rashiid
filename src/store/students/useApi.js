@@ -17,6 +17,12 @@ import {
   singleViewfail,
   singleViewRequest,
   singleViewSuccess,
+  StudentsCoursesDeleteFail,
+  StudentsCoursesDeleteRequest,
+  StudentsCoursesDeleteSccess,
+  StudentsCoursesSingleViewFail,
+  StudentsCoursesSingleViewRequest,
+  StudentsCoursesSingleViewSuccess,
   updateStudentDataFail,
   updateStudentDataRequest,
   updateStudentDataSuccess,
@@ -139,7 +145,7 @@ export const CreateStudentCourseApi = (catId, navigate, stdCourseData) => {
       console.log(res);
 
       dispatch(CreateStudentCourseSuccess(res.data));
-      navigate(`/StudentView/${catId}`);
+      navigate(`/studentscourses/`);
     } catch (error) {
       // console.log(error);
       dispatch(CreateStudentCourseFail(error?.response?.data));
@@ -165,6 +171,48 @@ export const getStudentCourseApi = (page) => {
     } catch (error) {
       // console.log(error);
       dispatch(GetStudentCourseDataFail(error?.response?.data));
+    }
+  };
+};
+
+// Students COurses single view //
+
+// export const StudentsCoursesSingleViewApi = (id) => {
+//   //   console.log(input);
+//   return async (dispatch) => {
+//     dispatch(StudentsCoursesSingleViewRequest());
+
+//     try {
+//       const res = await AxiosApi.get(`/student/student_course/${id}`);
+//       console.log(res);
+
+//       dispatch(StudentsCoursesSingleViewSuccess(res.data));
+//       // navigate(`/StudentView/${res.student}`);
+//     } catch (error) {
+//       // console.log(error);
+//       dispatch(StudentsCoursesSingleViewFail(error?.response?.data));
+//     }
+//   };
+// };
+
+//  delete Students Courses //
+
+export const DeleteStudentsCourseApi = (id, navigate) => {
+  //   console.log(input);
+  return async (dispatch) => {
+    dispatch(StudentsCoursesDeleteRequest());
+
+    try {
+      const res = await AxiosApi.delete(`/student/student_course/${id}`);
+      console.log(res);
+      if (res.status === 204) {
+        dispatch(StudentsCoursesDeleteSccess(id));
+      }
+
+      // navigate(`/StudentView/${res.student}`);
+    } catch (error) {
+      // console.log(error);
+      dispatch(StudentsCoursesDeleteFail(error?.response?.data));
     }
   };
 };
