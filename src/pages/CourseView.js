@@ -86,7 +86,10 @@ function CourseView() {
                   type="button"
                   color="danger"
                   onClick={deleteCourseCategory}
-                  style={{ marginLeft: "15px", padding: "3px 20px 3px 20px" }}
+                  style={{
+                    marginLeft: "15px",
+                    padding: "3px 20px 3px 20px",
+                  }}
                 >
                   Trash
                   <BsTrash style={{ fontSize: "20px" }} />

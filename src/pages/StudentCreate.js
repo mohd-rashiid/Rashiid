@@ -186,34 +186,42 @@ function StudentDetails() {
                       </div>
                     </Row>
                     <div className="mt-3 d-flex justify-content-end">
-                      <Button
+                      <div
                         style={{
-                          marginRight: "469px",
-                          backgroundColor: "white",
-                          color: "black",
-                          padding: "3px 20px 3px 20px",
-                          borderRadius: "5px",
-                        }}
-                        onClick={() => {
-                          navigate("/home");
+                          padding: "15px",
+                          display: "flex",
+                          justifyContent: "space-around",
                         }}
                       >
-                        back
-                      </Button>
-                      <Button
-                        // style={{
-                        //   backgroundColor: "MediumSeaGreen",
-                        //   padding: "3px 20px 3px 20px",
-                        //   borderRadius: "5px",
-                        // }}
-                        type="button"
-                        color="success"
-                        onClick={handleSubmitCreate}
-                        requied
-                      >
-                        {" "}
-                        Create
-                      </Button>
+                        <Button
+                          style={{
+                            backgroundColor: "white",
+                            color: "black",
+                            padding: "3px 20px 3px 20px",
+                            borderRadius: "5px",
+                            marginLeft: "1rem",
+                          }}
+                          onClick={() => {
+                            navigate("/home");
+                          }}
+                        >
+                          back
+                        </Button>
+                        <Button
+                          // style={{
+                          //   backgroundColor: "MediumSeaGreen",
+                          //   padding: "3px 20px 3px 20px",
+                          //   borderRadius: "5px",
+                          // }}
+                          type="button"
+                          color="success"
+                          onClick={handleSubmitCreate}
+                          requied
+                        >
+                          {" "}
+                          Create
+                        </Button>
+                      </div>
                     </div>
                   </Form>
                   {/* {input.map((Students) => (

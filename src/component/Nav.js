@@ -42,7 +42,11 @@ function Nav() {
       <nav
         // style={{ position: "fixed" }}
         className="navbar navbar-expand-lg navbar-secondary"
-        style={{ backgroundColor: "#19232b" }}
+        style={{
+          backgroundColor: "#FFFFFFFF",
+          borderBottom: "1px solid",
+          // position: "fixed",
+        }}
       >
         {/* <button 
         style={{color:"white",backgroundColor:"black"}}
@@ -74,7 +78,6 @@ function Nav() {
                 Osperb
               </h2>
             </div> */}
-
           <FaBars
             style={{
               fontSize: "40px",
@@ -82,13 +85,14 @@ function Nav() {
               color: "white",
             }}
           />
-          {/* </Link> */}
+          <h2>edison valley</h2> {/* </Link> */}
           {/* <div style={{ display: "flex", justifyContent: "space-between" }}> */}
           <div
             style={{
               width: "30%",
               borderRadius: "10px",
               marginRight: "10px",
+              // color: "black",
               // justifyContent: "space-between",
               // display: "flex",
               // justifyContent: "flex-end",
@@ -96,18 +100,20 @@ function Nav() {
             className="input-group rounded"
           >
             <input
+              // color="black"
               type="search"
               className="form-control"
-              placeholder="Search here.."
+              placeholder="Search here..."
               aria-label="Search "
               aria-describedby="search-addon"
               style={{
-                marginLeft: "-400px",
-                marginRight: "200px",
-                borderRadius: "15px",
+                // marginLeft: "-400px",
+                // marginRight: "200px",
+                // borderRadius: "15px",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
+                // color: "black",
               }}
             />
             {/* <span className="input-group-text border-0" id="search-addon"> */}
