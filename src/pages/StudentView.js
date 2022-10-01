@@ -61,7 +61,7 @@ function StudentView() {
     <div>
       <section>
         <Layout>
-          <h1
+          {/* <h1
             style={{
               // display: "flex",
               // alignItems: "center",
@@ -71,7 +71,7 @@ function StudentView() {
           >
             {" "}
             STUDENT VIEW
-          </h1>
+          </h1> */}
           <div className="container" style={{ padding: "5px" }}>
             <div className="row justify-content-center">
               <img
@@ -226,6 +226,22 @@ function StudentView() {
                         to="/NewCourse"
                       >
                         + Create Students Course
+                      </Link>
+                    </Button>
+                    <Button
+                      color="success"
+                      style={{
+                        padding: "3px 20px 3px 20px",
+                      }}
+                    >
+                      <Link
+                        style={{
+                          textDecoration: "none",
+                          color: "white",
+                        }}
+                        to="/certi"
+                      >
+                        Certificate View
                       </Link>
                     </Button>
                   </div>

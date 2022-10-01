@@ -64,17 +64,17 @@ function Students() {
           <thead>
             <tr>
               <th>#</th>
-              <th>email</th>
+              <th>E-mail</th>
               {/* <th>phone</th> */}
-              <th>full_name</th>
-              <th>address</th>
-              <th>start_date</th>
-              <th>End_date</th>
+              <th>Full Name</th>
+              <th>Phone</th>
+              <th>Start Date</th>
+              <th>End Date</th>
 
               {/* <th>dob</th>
               <th>end_date</th> */}
               {/* <th>designation</th> */}
-              <th>actions</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -83,7 +83,7 @@ function Students() {
                 <th scope="row">{key + 1}</th>
                 <td>{item?.email}</td>
                 <td>{item?.full_name}</td>
-                <td>{item?.address}</td>
+                <td>{item?.phone}</td>
                 <td>{item?.start_date}</td>
                 <td>{item?.end_date}</td>
                 <td>
