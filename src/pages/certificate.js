@@ -1,20 +1,22 @@
-import React from "react";
-import { Button, Card, CardBody, CardTitle } from "reactstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Card, CardBody, CardTitle, Col, Modal } from "reactstrap";
 import solo from "../images/certi.jpeg";
 import { FaAward, IconName } from "react-icons/fa";
 import dash from "../images/background1.png";
 import last from "../images/background2.png";
+import CertificateModals from "./CertificateModals";
 
 function Certificate() {
-  const printDoc = () => {
-    window.print();
-  };
+  const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    setModal(true);
+  }, [setModal]);
+
   return (
     <>
+      <CertificateModals show={modal} onCloseclick={() => setModal(false)} />
       <div className="good">
-        <Button color="success" onClick={() => printDoc()}>
-          download the file
-        </Button>
         <img
           style={{ marginLeft: "50%" }}
           src={dash}
@@ -50,12 +52,12 @@ function Certificate() {
             }}
           >
             <h4
+              className="hello"
               style={{
                 fontSize: "50px",
                 // marginRight: "50vh",
                 color: "rgb(37, 55, 89)",
               }}
-              className="hello"
             >
               <div className="done">
                 {" "}
@@ -64,7 +66,7 @@ function Certificate() {
               </div>
               <h5
                 style={{
-                  marginLeft: "280px",
+                  marginLeft: "260px",
                   marginBottom: "15px",
                   fontFamily: "quicksand,san-serif",
                   fontSize: "25px",
@@ -93,13 +95,14 @@ function Certificate() {
           >
             {" "}
             <b></b>
-            <div>
+            <div style={{ marginLeft: "30px" }}>
               <b>
                 <h1
                   className="font"
                   style={{ fontSize: "40px ", color: "rgb(37, 55, 89)" }}
                 >
-                  Mr: Muhammed Rashid
+                  {" "}
+                  Muhammed Rashid
                 </h1>
               </b>
 
@@ -108,7 +111,7 @@ function Certificate() {
             <div
               style={{ marginLeft: "15px", fontFamily: "quicksand,san-serif" }}
             >
-              <h3>His completed the following skill:</h3>
+              <h3>Completed the following achievement</h3>
             </div>
             <div>
               <h1
@@ -131,7 +134,7 @@ function Certificate() {
                 <b
                   className="font"
                   style={{
-                    color: "rgb(37, 55, 89)",
+                    // color: "rgb(37, 55, 89)",
                     fontSize: "20px",
                   }}
                 >
@@ -149,7 +152,7 @@ function Certificate() {
                 <b
                   className="font"
                   style={{
-                    color: "rgb(37, 55, 89)",
+                    // color: "rgb(37, 55, 89)",
                     fontSize: "20px",
                   }}
                 >
@@ -161,7 +164,7 @@ function Certificate() {
                 </span>
                 <b
                   style={{
-                    color: "rgb(37, 55, 89)",
+                    // color: "rgb(37, 55, 89)",
                     fontSize: "20px",
                   }}
                 >
@@ -174,7 +177,7 @@ function Certificate() {
                 {" "}
                 <h4>
                   His course activities include real-world projects and many
-                  <span style={{ marginLeft: "200px" }}> challenges</span>
+                  <span style={{ marginLeft: "240px" }}> challenges</span>
                 </h4>
               </div>
               <div
@@ -184,7 +187,7 @@ function Certificate() {
                   marginLeft: "400px",
                 }}
               >
-                <h3>Osperb CEO </h3>
+                <h3> CEO </h3>
               </div>
             </div>
             {/* <div className="center" style={{ marginTop: "50px" }}></div> */}

@@ -15,7 +15,9 @@
 }
 
 .hello{
-    color: #444444;
+    /* color: #444444; */
+    color: #FFD700,
+
 
 
 }
@@ -82,12 +84,13 @@
     font-size: 90px;
     /* font-family:Source Sans Pro, sans-serif  ; */
     font-family: 'Pirata One', cursive;
-    margin-left: 215px;
-    margin-top: 100px;
+    margin-left: 200px;
+    margin-top: 80px;
 
 }
 .font{
     font-family: 'Roboto Slab', serif;    
+    margin-left: 15px;
 }
 .commen {
     font-family: 'Raleway', sans-serif;
@@ -97,4 +100,9 @@
 }
 .all{
     font-family: 'Quicksand', sans-serif;
+}
+@media print{
+   .aall {
+    display: none;
+    }
 }
