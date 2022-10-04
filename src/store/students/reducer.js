@@ -24,6 +24,9 @@ import {
   STUDENTS_COURSES_SINGLE_VIEW_FAIL,
   STUDENTS_COURSES_SINGLE_VIEW_REQUEST,
   STUDENTS_COURSES_SINGLE_VIEW_SUCCESS,
+  STUDENT_CERTIFICATE_FAIL,
+  STUDENT_CERTIFICATE_REQUEST,
+  STUDENT_CERTIFICATE_SUCCESS,
   UPDATE_STUDENT_DATA_FAIL,
   UPDATE_STUDENT_DATA_REQUEST,
   UPDATE_STUDENT_DATA_SUCCESS,
@@ -41,6 +44,7 @@ const initiailState = {
   studentCourseData: [],
   studentCourseSingleVIew: {},
   studentCourseDelete: {},
+  studentCertificate: {},
 };
 
 const createReducer = (state = initiailState, action) => {
@@ -239,6 +243,29 @@ const createReducer = (state = initiailState, action) => {
         error: "",
       };
     case STUDENTS_COURSES_DELETE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    // show student details in certificate //
+
+    case STUDENT_CERTIFICATE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case STUDENT_CERTIFICATE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        studentCertificate: action.payload,
+        error: "",
+      };
+
+    case STUDENT_CERTIFICATE_FAIL:
       return {
         ...state,
         loading: false,

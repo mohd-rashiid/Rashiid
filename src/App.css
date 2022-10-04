@@ -104,5 +104,12 @@
 @media print{
    .aall {
     display: none;
+    
+    }
+    /* *{
+        color: red !important ;
+    } */
+    .modal-backdrop{
+        display: none;
     }
 }

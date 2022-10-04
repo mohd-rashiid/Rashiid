@@ -27,6 +27,9 @@ import {
   STUDENTS_COURSES_DELETE_REQUEST,
   STUDENTS_COURSES_DELETE_SUCCESS,
   STUDENTS_COURSES_DELETE_FAIL,
+  STUDENT_CERTIFICATE_REQUEST,
+  STUDENT_CERTIFICATE_SUCCESS,
+  STUDENT_CERTIFICATE_FAIL,
 } from "./actiontype";
 
 export const createRequest = (input) => ({
@@ -166,4 +169,19 @@ export const StudentsCoursesDeleteSccess = (id) => ({
 export const StudentsCoursesDeleteFail = (error) => ({
   type: STUDENTS_COURSES_DELETE_FAIL,
   payload: error,
+});
+
+// show student details in certificate //
+
+export const studentCertificateRequest = () => ({
+  type: STUDENT_CERTIFICATE_REQUEST,
+  payload: "",
+});
+export const studentCertificateSuccess = () => ({
+  type: STUDENT_CERTIFICATE_SUCCESS,
+  payload: "",
+});
+export const studentsCertificateFail = () => ({
+  type: STUDENT_CERTIFICATE_FAIL,
+  payload: "",
 });

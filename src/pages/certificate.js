@@ -73,7 +73,7 @@ function Certificate() {
                 }}
               >
                 {" "}
-                for his Achivment
+                for his Achivement
               </h5>
               <br />
             </h4>
