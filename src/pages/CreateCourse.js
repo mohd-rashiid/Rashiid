@@ -48,47 +48,46 @@ function CreateCourse() {
           <Row>
             <Col xl="3"></Col>
             <Col xl="6">
-              <Card>
-                <div className="container my-5">
-                  <div className="row justify-content-center my-5">
-                    <div className="col-sm-6 shadow rounded g-5">
-                      <h1 className="text-center pt-3 text-secondery h2">
-                        <b>Create Course</b>
-                      </h1>
-                      <form
-                        style={{ padding: "10px" }}
-                        onSubmit={hanSubBtnCreateCourse}
-                      >
-                        <div className="form-group">
-                          <label className=" col=-form-label">
-                            <b>Course Name:</b>
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            name="course_name"
-                            // required
-                            onChange={(e) => Control(e)}
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label className=" col=-form-label">
-                            <b>Duration:</b>
-                          </label>
-                          <input
-                            type="number"
-                            name="duration"
-                            className="form-control"
-                            // required
-                            onChange={(e) => Control(e)}
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label className=" col-form-label">
-                            <b>Course Category:</b>
-                          </label>
+              <div className="container my-5">
+                <div className="row justify-content-center my-5">
+                  <div className="col-sm-6 shadow rounded g-5">
+                    <h1 className="text-center pt-3 text-secondery h2">
+                      <b>Create Course</b>
+                    </h1>
+                    <form
+                      style={{ padding: "10px" }}
+                      onSubmit={hanSubBtnCreateCourse}
+                    >
+                      <div className="form-group">
+                        <label className=" col=-form-label">
+                          <b>Course Name:</b>
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="course_name"
+                          // required
+                          onChange={(e) => Control(e)}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label className=" col=-form-label">
+                          <b>Duration:</b>
+                        </label>
+                        <input
+                          type="number"
+                          name="duration"
+                          className="form-control"
+                          // required
+                          onChange={(e) => Control(e)}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label className=" col-form-label">
+                          <b>Course Category:</b>
+                        </label>
 
-                          {/* <input
+                        {/* <input
                     type="text"
                     required
                     name="course_category"
@@ -98,31 +97,31 @@ function CreateCourse() {
                     onChange={(e) => Control(e)}
                     // name="browser"
                   /> */}
-                          <div className="form-group">
-                            <select
-                              className="col-form-label"
-                              name="course_category"
-                              id=""
-                              onChange={(e) => Control(e)}
-                            >
-                              <option>choose course category...</option>
-                              {map(courseCategory?.results, (item, key) => (
-                                <option value={item.id}>
-                                  {item.course_category_name}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
+                        <div className="form-group">
+                          <select
+                            className="col-form-label"
+                            name="course_category"
+                            id=""
+                            onChange={(e) => Control(e)}
+                          >
+                            <option>choose course category...</option>
+                            {map(courseCategory?.results, (item, key) => (
+                              <option value={item.id}>
+                                {item.course_category_name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
 
-                          {/* <datalist id="browsers">
+                        {/* <datalist id="browsers">
                     <option value=" data" />
                     <option value="students" />
                     <option value="ome" />
                     <option value="nlz" />
                     <option value="ok" />
                   </datalist> */}
-                          {/* <input type="submit" /> */}
-                          {/* <input
+                        {/* <input type="submit" /> */}
+                        {/* <input
                     type="text"
                     name="course_category"
                     placeholder="example,Front-end,back-end ext......"
@@ -130,9 +129,9 @@ function CreateCourse() {
                     required
                     onChange={(e) => Control(e)}
                   /> */}
-                        </div>
-                        <div>
-                          {/* <Button
+                      </div>
+                      <div>
+                        {/* <Button
                     style={{
                       marginLeft: "439px",
                       color: "black",
@@ -146,7 +145,7 @@ function CreateCourse() {
                     {" "}
                     Create
                   </Button> */}
-                          {/* <input
+                        {/* <input
                     style={{
                       backgroundColor: "MediumSeaGreen",
                       color: "white",
@@ -158,45 +157,44 @@ function CreateCourse() {
                     value="Create"
                     required
                   /> */}
-                          <div
+                        <div
+                          style={{
+                            paddingTop: "15px",
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <Button
+                            type="submit"
                             style={{
-                              paddingTop: "15px",
-                              display: "flex",
-                              justifyContent: "space-between",
+                              backgroundColor: "MediumSeaGreen",
+                              color: "white",
+                              padding: "3px 20px 3px 20px",
                             }}
                           >
-                            <Button
-                              type="submit"
-                              style={{
-                                backgroundColor: "MediumSeaGreen",
-                                color: "white",
-                                padding: "3px 20px 3px 20px",
-                              }}
-                            >
-                              {" "}
-                              create
-                            </Button>
-                            <Button
-                              style={{
-                                color: "black",
-                                backgroundColor: "white",
-                                padding: "3px 20px 3px 20px",
-                                borderRadius: "5px",
-                              }}
-                              onClick={() => {
-                                navigate("/home");
-                              }}
-                            >
-                              {" "}
-                              back
-                            </Button>
-                          </div>
+                            {" "}
+                            create
+                          </Button>
+                          <Button
+                            style={{
+                              color: "black",
+                              backgroundColor: "white",
+                              padding: "3px 20px 3px 20px",
+                              borderRadius: "5px",
+                            }}
+                            onClick={() => {
+                              navigate("/home");
+                            }}
+                          >
+                            {" "}
+                            back
+                          </Button>
                         </div>
-                      </form>
-                    </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
-              </Card>
+              </div>
             </Col>
           </Row>
         </Container>

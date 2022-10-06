@@ -80,7 +80,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/NewCourse" element={<NewCourse />} />
           {/* <Route path="/cerifificate" element={<certificate />} /> */}
-          <Route path="/certi" element={<Certificate />} />
+          <Route path="/certi/:id/" element={<Certificate />} />
           <Route path="*" element={<NotFound />} />
 
           {/* <Route path="/home" element={<Navigate replace to="/" />} /> */}

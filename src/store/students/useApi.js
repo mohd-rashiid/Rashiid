@@ -17,6 +17,7 @@ import {
   singleViewfail,
   singleViewRequest,
   singleViewSuccess,
+  studentCertificateFail,
   studentCertificateRequest,
   studentCertificateSuccess,
   studentsCertificateFail,
@@ -221,27 +222,23 @@ export const DeleteStudentsCourseApi = (id, navigate) => {
   };
 };
 
-    // show student details in certificate //
+// show student details in certificate //
 
-
-
-export const mainCertificate = () => {
+export const mainCertificate = (id) => {
   //   console.log(input);
   return async (dispatch) => {
     dispatch(studentCertificateRequest());
 
     try {
-      const res = await AxiosApi.get(`/student/student_course/`);
-      console.log(res);
-      if () {
-        dispatch(studentCertificateSuccess());
-      }
+      const res = await AxiosApi.get(`/student/student/${id}`);
+      // console.log(res?.data?.results);
+
+      dispatch(studentCertificateSuccess(res?.data));
 
       // navigate(`/StudentView/${res.student}`);
     } catch (error) {
       // console.log(error);
-      dispatch(studentsCertificateFail(error?.response?.data));
+      dispatch(studentCertificateFail(error?.response?.data));
     }
   };
 };
-    

@@ -75,7 +75,7 @@ export const singleViewfail = () => ({
   payload: "",
 });
 
-//delete  student
+//delete  student //
 
 export const deleteStudentRequest = () => ({
   type: DELETE_STUDENT_REQUEST,
@@ -177,11 +177,11 @@ export const studentCertificateRequest = () => ({
   type: STUDENT_CERTIFICATE_REQUEST,
   payload: "",
 });
-export const studentCertificateSuccess = () => ({
+export const studentCertificateSuccess = (studentCertificate) => ({
   type: STUDENT_CERTIFICATE_SUCCESS,
-  payload: "",
+  payload: studentCertificate,
 });
-export const studentsCertificateFail = () => ({
+export const studentCertificateFail = (error) => ({
   type: STUDENT_CERTIFICATE_FAIL,
-  payload: "",
+  payload: error,
 });

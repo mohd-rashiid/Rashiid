@@ -239,7 +239,7 @@ function StudentView() {
                           textDecoration: "none",
                           color: "white",
                         }}
-                        to="/certi"
+                        to={`/certi/${params.id}`}
                       >
                         Certificate View
                       </Link>

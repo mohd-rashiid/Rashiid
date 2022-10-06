@@ -44,7 +44,7 @@ const initiailState = {
   studentCourseData: [],
   studentCourseSingleVIew: {},
   studentCourseDelete: {},
-  studentCertificate: {},
+  studentCertificate: [],
 };
 
 const createReducer = (state = initiailState, action) => {
